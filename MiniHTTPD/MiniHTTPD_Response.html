@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class MiniHTTPD_Response</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class MiniHTTPD_Response</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The MiniHTTPD request class.</p>
+<p class="description"><p>Apart from overloading any members in the base message class, the main  responsibility of this class is to build the response for returning to the  client, and in particular to combine the server client response with any  FCGI client response. The response body may be buffered locally or handled  as a stream resource. Most of the methods here are also chainable.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> MiniHTTPD Team</li>
+				<li><span class="field">copyright:</span> (c) 2010 MiniHTTPD Team</li>
+				<li><span class="field">todo:</span> Add support for chunked encoding as per HTTP/1.1.</li>
+				<li><span class="field">license:</span> BSD</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---minihttpd---classes---response.php.html">/lib/minihttpd/classes/response.php</a> (line <span class="field">18</span>)
+		</p>
+		
+				
+		<pre>MHTTPD_Message
+   |
+   --MiniHTTPD_Response</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$bytes" title="details" class="var-name">$bytes</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$code" title="details" class="var-name">$code</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$headers" title="details" class="var-name">$headers</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$input" title="details" class="var-name">$input</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$status" title="details" class="var-name">$status</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">resource</span>
+					<a href="#$stream" title="details" class="var-name">$stream</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																		
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#httpDate" title="details" class="method-name">httpDate</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$time</span>)
+									</div>
+																																																										
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+										<a href="#addBytesSent" title="details" class="method-name">addBytesSent</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$bytes</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+										<a href="#addHeader" title="details" class="method-name">addHeader</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$combine</span> = <span class="var-default">true</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$append</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+										<a href="#append" title="details" class="method-name">append</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$input</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#asArray" title="details" class="method-name">asArray</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getBytesSent" title="details" class="method-name">getBytesSent</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getContentLength" title="details" class="method-name">getContentLength</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getHeaderBlock" title="details" class="method-name">getHeaderBlock</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getStatusCode" title="details" class="method-name">getStatusCode</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#hasErrorCode" title="details" class="method-name">hasErrorCode</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#hasStream" title="details" class="method-name">hasStream</a>
+										()
+									</div>
+																						
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+										<a href="#setHeader" title="details" class="method-name">setHeader</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+										<a href="#setHeaders" title="details" class="method-name">setHeaders</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$headers</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+										<a href="#setStatic" title="details" class="method-name">setStatic</a>
+											(<span class="var-type">bool</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+										<a href="#setStatusCode" title="details" class="method-name">setStatusCode</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$code</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+										<a href="#setStream" title="details" class="method-name">setStream</a>
+											(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$handle</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$bytes" id="$bytes"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$bytes</span>
+						(line <span class="line-number">63</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Number of bytes successfully sent to the client.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$code" id="$code"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$code</span>
+						(line <span class="line-number">45</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The response status code.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$headers" id="$headers"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$headers</span>
+			 = <span class="var-default">array(<br />		'Date' =&gt; '',<br />		'Server'=&gt; '',<br />		'X-Powered-By' =&gt; '',<br />		'Last-Modified' =&gt; '',<br />		'Etag' =&gt; '',<br />		'Expires' =&gt;  '',<br />		'Cache-Control'=&gt; '',<br />		'Pragma'=&gt; '',<br />		'Location' =&gt; '',<br />		'Content-Encoding' =&gt; '',<br />		'Vary' =&gt; '',<br />		'WWW-Authenticate' =&gt; '',<br />		'Content-Length'=&gt; '',<br />		'Content-Type' =&gt; '',<br />		'Keep-Alive'=&gt; '',<br />		'Connection' =&gt; '',<br />	)</span>			(line <span class="line-number">73</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The default list of response headers.</p>
+<p class="description"><p>Any empty headers will not be sent to the client, and this list is useful  mainly for asserting the order in which valid headers should be sent.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$input" id="$input"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$input</span>
+						(line <span class="line-number">51</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The raw response message input.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$status" id="$status"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$status</span>
+						(line <span class="line-number">39</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The response status line.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$stream" id="$stream"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">resource</span>
+			<span class="var-name">$stream</span>
+						(line <span class="line-number">57</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Stream resource for the response body.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodhttpDate" id="httpDate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static httpDate</span> (line <span class="line-number">28</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a HTTP formatted date string.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> formatted date</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			httpDate
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$time</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$time</span><span class="var-description">: UNIX timestamp</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">97</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the default status line.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__construct
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodaddBytesSent" id="addBytesSent"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addBytesSent</span> (line <span class="line-number">312</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Increments the count of successfully sent bytes.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+		<span class="method-name">
+			addBytesSent
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$bytes</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$bytes</span><span class="var-description">: bytes sent</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddHeader" id="addHeader"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addHeader</span> (line <span class="line-number">242</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a new header value either by combining with existing values or adding  to an existing array. If the header doesn't exist, it will be created.</p>
+<p class="description"><p>Generally speaking, it's better to build multiple header values as a comma-  separated list, but in some circumstances sending multiple headers as  individual lines is needed, in which case an array of values should be built  here. Identical values will not be repeated, and values within quotation  marks are regarded as different from those without.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+		<span class="method-name">
+			addHeader
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$combine</span> = <span class="var-default">true</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$append</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: header name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: header value</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$combine</span><span class="var-description">: combine values in a comma-separated list?</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$append</span><span class="var-description">: force append the value to existing ones?</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodappend" id="append"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">append</span> (line <span class="line-number">148</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Appends the given input value to the existing response body.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+		<span class="method-name">
+			append
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$input</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$input</span><span class="var-description">: input value</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodasArray" id="asArray"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">asArray</span> (line <span class="line-number">107</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the stored response information as an array.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			asArray
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetBytesSent" id="getBytesSent"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getBytesSent</span> (line <span class="line-number">323</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the count of successfully sent bytes.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> bytes sent</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getBytesSent
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetContentLength" id="getContentLength"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getContentLength</span> (line <span class="line-number">301</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the response content length.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> length in bytes of the response body</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getContentLength
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetHeaderBlock" id="getHeaderBlock"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHeaderBlock</span> (line <span class="line-number">281</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the list of stored headers as a single block.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the header block</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getHeaderBlock
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetStatusCode" id="getStatusCode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getStatusCode</span> (line <span class="line-number">182</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the response status code.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> response code</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getStatusCode
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasErrorCode" id="hasErrorCode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasErrorCode</span> (line <span class="line-number">172</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether this is an error response.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasErrorCode
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasStream" id="hasStream"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasStream</span> (line <span class="line-number">137</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the message body is bound to a stream resource.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasStream
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsetHeader" id="setHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setHeader</span> (line <span class="line-number">206</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Overrides a parsed header value, or add a new one.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+		<span class="method-name">
+			setHeader
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: header name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: header value</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetHeaders" id="setHeaders"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setHeaders</span> (line <span class="line-number">218</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Overrides multiple parsed header values, or add new ones.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+		<span class="method-name">
+			setHeaders
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$headers</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$headers</span><span class="var-description">: list of header names &amp; values</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetStatic" id="setStatic"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setStatic</span> (line <span class="line-number">193</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Toggles the response as static or dynamic.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+		<span class="method-name">
+			setStatic
+		</span>
+					(<span class="var-type">bool</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$value</span><span class="var-description">: true for static, false for dynamic</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetStatusCode" id="setStatusCode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setStatusCode</span> (line <span class="line-number">160</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the response status code.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+		<span class="method-name">
+			setStatusCode
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$code</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$code</span><span class="var-description">: status code</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetStream" id="setStream"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setStream</span> (line <span class="line-number">126</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Binds a stream resource to the response body.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+		<span class="method-name">
+			setStream
+		</span>
+					(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$handle</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$handle</span><span class="var-description">: source from which to stream the body</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 30 Jul 2010 22:16:16 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

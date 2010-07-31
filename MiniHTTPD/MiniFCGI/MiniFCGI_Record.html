@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class MiniFCGI_Record</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class MiniFCGI_Record</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The MiniFCGI record class.</p>
+<p class="description"><p>The FastCGI/1.0 protocol is implemented through record objects created by  this class. Although the protocol requires new records for each stage of  the communication process, each with their own header and body, in practice  it's easier to reuse existing record objects and change the necessary values  at each step. The history of the whole request/response process can also be  followed quite easily by tracking changes in the object's state.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> MiniHTTPD Team</li>
+				<li><span class="field">copyright:</span> (c) 2010 MiniHTTPD Team</li>
+				<li><span class="field">todo:</span> Add support for FCGI management records.</li>
+				<li><span class="field">license:</span> BSD</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---minihttpd---classes---minifcgi---record.php.html">/lib/minihttpd/classes/minifcgi/record.php</a> (line <span class="field">20</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$content" title="details" class="var-name">$content</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">bool</span>
+					<a href="#$debug" title="details" class="var-name">$debug</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$length" title="details" class="var-name">$length</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$padding" title="details" class="var-name">$padding</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$requestID" title="details" class="var-name">$requestID</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">resource</span>
+					<a href="#$socket" title="details" class="var-name">$socket</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$type" title="details" class="var-name">$type</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$version" title="details" class="var-name">$version</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																		
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#encodeLength" title="details" class="method-name">encodeLength</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$length</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">string|false</span>
+										<a href="#encodePair" title="details" class="method-name">encodePair</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result"><a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Record.html">MiniFCGI_Record</a></span>
+										<a href="#factory" title="details" class="method-name">factory</a>
+											(<span class="var-type">resource</span>&nbsp;<span class="var-name">$socket</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$requestID</span> = <span class="var-default">null</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$content</span> = <span class="var-default">null</span>])
+									</div>
+																																																																																										
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#addParam" title="details" class="method-name">addParam</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Record.html">MiniFCGI_Record</a></span>
+										<a href="#bind" title="details" class="method-name">bind</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$var</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">&$value</span>)
+									</div>
+																																						
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getContent" title="details" class="method-name">getContent</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getEndCodes" title="details" class="method-name">getEndCodes</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#isType" title="details" class="method-name">isType</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#read" title="details" class="method-name">read</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Record.html">MiniFCGI_Record</a></span>
+										<a href="#setFlags" title="details" class="method-name">setFlags</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$flags</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Record.html">MiniFCGI_Record</a></span>
+										<a href="#setRole" title="details" class="method-name">setRole</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$role</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Record.html">MiniFCGI_Record</a></span>
+										<a href="#setType" title="details" class="method-name">setType</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#stream" title="details" class="method-name">stream</a>
+											(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$stream</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#write" title="details" class="method-name">write</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$content" id="$content"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$content</span>
+						(line <span class="line-number">133</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The record content/body.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$debug" id="$debug"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bool</span>
+			<span class="var-name">$debug</span>
+			 = <span class="var-default"> true</span>			(line <span class="line-number">109</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Should debugging output be enabled?</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$length" id="$length"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$length</span>
+						(line <span class="line-number">139</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Length in bytes of the record body.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$padding" id="$padding"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$padding</span>
+						(line <span class="line-number">145</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Length in bytes of any record body padding.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$requestID" id="$requestID"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$requestID</span>
+						(line <span class="line-number">127</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The active request ID number.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$socket" id="$socket"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">resource</span>
+			<span class="var-name">$socket</span>
+						(line <span class="line-number">151</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The active FCGI process socket connection.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$type" id="$type"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$type</span>
+						(line <span class="line-number">121</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The FCGI protocol type.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$version" id="$version"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$version</span>
+						(line <span class="line-number">115</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The FCGI protocol version.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodencodeLength" id="encodeLength"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static encodeLength</span> (line <span class="line-number">89</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Encodes the length elements of the parameter name-value pairs.</p>
+<p class="description"><p>The value is encoded as 1 or 4 bytes, depending on the size.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the encoded length value</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			encodeLength
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$length</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$length</span><span class="var-description">: length in bytes</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodencodePair" id="encodePair"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static encodePair</span> (line <span class="line-number">61</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Encodes parameter name-value pairs for adding to FCGI record bodies.</p>
+<p class="description"><p>PHP doesn't allow parameter pairs to be split between records, so the  de facto maximum size for individual name-value pairs must be checked  here before any record is sent.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> encoded name-value pair or error</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string|false</span>
+		<span class="method-name">
+			encodePair
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: parameter name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: parameter value</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfactory" id="factory"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static factory</span> (line <span class="line-number">37</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Factory method for creating new FCGI records.</p>
+<p class="description"><p>This method must be used by default, as the class can't be instantiated  directly. One advantage is that the initialization can be handled cleanly,  and the result is also chainable.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> a new FCGI record</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">usedby:</span> <a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Client.html#methodreadResponse">MiniFCGI_Client::readResponse()</a></li>
+				<li><span class="field">usedby:</span> <a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Client.html#methodsendRequest">MiniFCGI_Client::sendRequest()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result"><a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Record.html">MiniFCGI_Record</a></span>
+		<span class="method-name">
+			factory
+		</span>
+					(<span class="var-type">resource</span>&nbsp;<span class="var-name">$socket</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$requestID</span> = <span class="var-default">null</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$content</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">$socket</span><span class="var-description">: the FCGI socket connection</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$requestID</span><span class="var-description">: the request ID number</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$type</span><span class="var-description">: the request type</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$content</span><span class="var-description">: the request content</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">412</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Ensures that the factory method must be used to instantiate the class.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__construct
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodaddParam" id="addParam"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addParam</span> (line <span class="line-number">306</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds an encoded parameter name-value pair to the current record body.</p>
+<p class="description"><p>If the maximum record size is exceeded, the method should be aborted and  a new record started once the current one has been sent.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> false if max record length is exceeded</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			addParam
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: parameter name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: parameter value</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodbind" id="bind"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">bind</span> (line <span class="line-number">366</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Binds a record value to a variable.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Record.html">MiniFCGI_Record</a></span>
+		<span class="method-name">
+			bind
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$var</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">&$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$var</span><span class="var-description">: variable name</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">&$value</span><span class="var-description">: bound variable reference</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetContent" id="getContent"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getContent</span> (line <span class="line-number">388</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the current record body.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the record body</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getContent
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetEndCodes" id="getEndCodes"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getEndCodes</span> (line <span class="line-number">399</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the parsed application and protocol codes from the last FCGI  End Request record.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> parsed status codes</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getEndCodes
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisType" id="isType"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isType</span> (line <span class="line-number">378</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the record is of the given type.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			isType
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$type</span><span class="var-description">: FCGI record type</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodread" id="read"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">read</span> (line <span class="line-number">216</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Decodes a received record and parses its header and body.</p>
+<p class="description"><p>FCGI headers are always 8 bytes, so if there are fewer than 8 bytes in the  response, then the method should be aborted and the stream pointer rewound  until more data becomes available.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> false on error</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			read
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsetFlags" id="setFlags"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setFlags</span> (line <span class="line-number">341</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the FCGI Begin Request record flags.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Record.html">MiniFCGI_Record</a></span>
+		<span class="method-name">
+			setFlags
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$flags</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$flags</span><span class="var-description">: FCGI record flags</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetRole" id="setRole"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setRole</span> (line <span class="line-number">353</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the FCGI Begin Request record role.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Record.html">MiniFCGI_Record</a></span>
+		<span class="method-name">
+			setRole
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$role</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$role</span><span class="var-description">: FCGI record role</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetType" id="setType"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setType</span> (line <span class="line-number">329</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the current record type.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Record.html">MiniFCGI_Record</a></span>
+		<span class="method-name">
+			setType
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$type</span><span class="var-description">: FCGI record type</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodstream" id="stream"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">stream</span> (line <span class="line-number">273</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends FCGI stream records to the active FCGI process.</p>
+<p class="description"><p>Data that is sent as a series of stream records (such as STDIN) needs to be  chunked into sizes that don't exceed the maximum record length.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			stream
+		</span>
+					(<span class="var-type">resource</span>&nbsp;<span class="var-name">&$stream</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">&$stream</span><span class="var-description">: the stream to be chunked</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodwrite" id="write"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">write</span> (line <span class="line-number">162</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Encodes the current record header (and body if needed) and sends the record  to the active FCGI process.</p>
+<p class="description"><p>This could be optimized by sending header, body and padding separately, but  the overhead for most requests seems minimal enough.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> false on error</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			write
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 30 Jul 2010 22:16:15 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

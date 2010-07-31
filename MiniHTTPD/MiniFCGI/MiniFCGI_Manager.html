@@ -1,0 +1,1121 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class MiniFCGI_Manager</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class MiniFCGI_Manager</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The MiniFCGI manager class.</p>
+<p class="description"><p>This static class is responsible for managing the FastCGI process pool. It  connects clients to available processes, spawns new ones if needed, monitors  activity on each of the processes and maintains a scoreboard for the pool.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> MiniHTTPD Team</li>
+				<li><span class="field">copyright:</span> (c) 2010 MiniHTTPD Team</li>
+				<li><span class="field">todo:</span> Add better dynamic management of the process pool, particularly for  culling idle or zombie processes.</li>
+				<li><span class="field">license:</span> BSD</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---minihttpd---classes---minifcgi---manager.php.html">/lib/minihttpd/classes/minifcgi/manager.php</a> (line <span class="field">18</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#ABORT_REQUEST" title="details" class="const-name">ABORT_REQUEST</a> = 					<span class="var-type"> 2</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#AUTHORIZER" title="details" class="const-name">AUTHORIZER</a> = 					<span class="var-type"> 2</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#BEGIN_REQUEST" title="details" class="const-name">BEGIN_REQUEST</a> = 					<span class="var-type"> 1</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#CANT_MPX_CONN" title="details" class="const-name">CANT_MPX_CONN</a> = 					<span class="var-type"> 1</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#DATA" title="details" class="const-name">DATA</a> = 					<span class="var-type"> 8</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#END_REQUEST" title="details" class="const-name">END_REQUEST</a> = 					<span class="var-type"> 3</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#FILTER" title="details" class="const-name">FILTER</a> = 					<span class="var-type"> 3</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#GET_VALUES" title="details" class="const-name">GET_VALUES</a> = 					<span class="var-type"> 9</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#GET_VALUES_RESULT" title="details" class="const-name">GET_VALUES_RESULT</a> = 					<span class="var-type"> 10</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#KEEP_CONN" title="details" class="const-name">KEEP_CONN</a> = 					<span class="var-type"> 1</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#MAX_LENGTH" title="details" class="const-name">MAX_LENGTH</a> = 					<span class="var-type"> 65536</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#NO_FLAGS" title="details" class="const-name">NO_FLAGS</a> = 					<span class="var-type"> 0</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#NULL_REQUEST_ID" title="details" class="const-name">NULL_REQUEST_ID</a> = 					<span class="var-type"> 0</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#OVERLOADED" title="details" class="const-name">OVERLOADED</a> = 					<span class="var-type"> 2</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#PARAMS" title="details" class="const-name">PARAMS</a> = 					<span class="var-type"> 4</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#REQUEST_COMPLETE" title="details" class="const-name">REQUEST_COMPLETE</a> = 					<span class="var-type"> 0</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#RESPONDER" title="details" class="const-name">RESPONDER</a> = 					<span class="var-type">  1</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#STDERR" title="details" class="const-name">STDERR</a> = 					<span class="var-type"> 7</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#STDIN" title="details" class="const-name">STDIN</a> = 					<span class="var-type"> 5</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#STDOUT" title="details" class="const-name">STDOUT</a> = 					<span class="var-type"> 6</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#UNKNOWN_ROLE" title="details" class="const-name">UNKNOWN_ROLE</a> = 					<span class="var-type"> 3</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#UNKNOWN_TYPE" title="details" class="const-name">UNKNOWN_TYPE</a> = 					<span class="var-type"> 11</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#VERSION_1" title="details" class="const-name">VERSION_1</a> = 					<span class="var-type"> 1</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+												<div class="var-title">
+					static <span class="var-type">array</span>
+					<a href="#$config" title="details" class="var-name">$config</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type">bool</span>
+					<a href="#$debug" title="details" class="var-name">$debug</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type">array</span>
+					<a href="#$pool" title="details" class="var-name">$pool</a>
+				</div>
+																																							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+										
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#addRequest" title="details" class="method-name">addRequest</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$ID</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">resource|false</span>
+										<a href="#connect" title="details" class="method-name">connect</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$clientID</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$processID</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">bool</span>
+										<a href="#createProcess" title="details" class="method-name">createProcess</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$ID</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$bind</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$cwd</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">integer|bool</span>
+										<a href="#getPID" title="details" class="method-name">getPID</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$ID</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array|string</span>
+										<a href="#getScoreboard" title="details" class="method-name">getScoreboard</a>
+											([<span class="var-type">bool</span>&nbsp;<span class="var-name">$asString</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">bool</span>
+										<a href="#processExists" title="details" class="method-name">processExists</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$ID</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$byPID</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">bool</span>
+										<a href="#removeClient" title="details" class="method-name">removeClient</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$ID</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">bool</span>
+										<a href="#spawn" title="details" class="method-name">spawn</a>
+											([<span class="var-type">integer</span>&nbsp;<span class="var-name">$ID</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$config</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#verifyProcesses" title="details" class="method-name">verifyProcesses</a>
+										()
+									</div>
+																																																																																																		
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$config" id="$config"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">array</span>
+			<span class="var-name">$config</span>
+						(line <span class="line-number">92</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The stored configuration settings for the pool.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$debug" id="$debug"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">bool</span>
+			<span class="var-name">$debug</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number">78</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Should debugging output be enabled?</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$pool" id="$pool"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">array</span>
+			<span class="var-name">$pool</span>
+						(line <span class="line-number">86</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The list of running processes along with information about them.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Manager.html#methodcreateProcess">MiniFCGI_Manager::createProcess()</a></li>
+				<li><span class="field">see:</span> <a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Manager.html#methodspawn">MiniFCGI_Manager::spawn()</a></li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																			<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodaddRequest" id="addRequest"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static addRequest</span> (line <span class="line-number">319</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Increments the request count for a running process.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">usedby:</span> <a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Client.html#methodsendRequest">MiniFCGI_Client::sendRequest()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			addRequest
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$ID</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$ID</span><span class="var-description">: a stored process ID number</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodconnect" id="connect"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static connect</span> (line <span class="line-number">162</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Connects a client to a running process, or spawns a new one if needed.</p>
+<p class="description"><p>The method will try to handle new client connections in the most optimal  way, otherwise if a client is trying to resume a connection to an already  existing process (for example, when reading an FCGI response) and cannot  complete the connection, the method must abort, as responses need to come  from the same process as the original requests.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the socket connection or error</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">resource|false</span>
+		<span class="method-name">
+			connect
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$clientID</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$processID</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$clientID</span><span class="var-description">: a stored client ID number</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$processID</span><span class="var-description">: a stored process ID number</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreateProcess" id="createProcess"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static createProcess</span> (line <span class="line-number">389</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Starts a new FastCGI process in the background.</p>
+<p class="description"><p>There are different ways of doing this on Windows, none as easy as it is on  UNIX systems ... anyway, using a WScript COM object seems to be the least  problematic, especially when running the server without a console.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> false if the process can't be created</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">usedby:</span> <a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Manager.html#methodspawn">MiniFCGI_Manager::spawn()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">bool</span>
+		<span class="method-name">
+			createProcess
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$ID</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$bind</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$cwd</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$ID</span><span class="var-description">: a stored process ID number</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$bind</span><span class="var-description">: the address:port of the new process</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$cwd</span><span class="var-description">: the working directory for the new process</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetPID" id="getPID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getPID</span> (line <span class="line-number">339</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the PID number for a running process.</p>
+<p class="description"><p>Getting the PID numbers for processes on Windows systems is more fiddly than  it should be. In this case, the most reliable method seems to be to run a  query script on the process itself that returns the output of the getmypid()  function in a custom header.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the PID number or error</li>
+				<li><span class="field">link:</span> <a href="http://www.php.net/manual/en/function.getmypid.php">http://www.php.net/manual/en/function.getmypid.php</a></li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">uses:</span> <a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Client.html#methodsendRequest">MiniFCGI_Client::sendRequest()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">integer|bool</span>
+		<span class="method-name">
+			getPID
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$ID</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$ID</span><span class="var-description">: a stored process ID number</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetScoreboard" id="getScoreboard"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getScoreboard</span> (line <span class="line-number">293</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the scoreboard for the process pool as an array or string.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the scorebord for the process pool</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array|string</span>
+		<span class="method-name">
+			getScoreboard
+		</span>
+					([<span class="var-type">bool</span>&nbsp;<span class="var-name">$asString</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$asString</span><span class="var-description">: return scoreboard as a string?</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprocessExists" id="processExists"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static processExists</span> (line <span class="line-number">443</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether a process in the pool is still alive.</p>
+<p class="description"><p>Again this is annoyingly fiddly on Windows systems, and can be terribly  slow to use on a regular basis. Two methods are therefore used, one quick  and dirty for checking each request, and the other slower but more accurate  for when more critical checks are needed.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">bool</span>
+		<span class="method-name">
+			processExists
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$ID</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$byPID</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$ID</span><span class="var-description">: a stored process ID number</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$byPID</span><span class="var-description">: use the slow but accurate  method?</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodremoveClient" id="removeClient"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static removeClient</span> (line <span class="line-number">273</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Detaches a client from a running process.</p>
+<p class="description"><p>Currently this only decrements the client count for the specified process.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">bool</span>
+		<span class="method-name">
+			removeClient
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$ID</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$ID</span><span class="var-description">: the stored client ID number</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodspawn" id="spawn"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static spawn</span> (line <span class="line-number">110</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds new FastCGI processes to the pool.</p>
+<p class="description"><p>At startup, this method will spawn the minimum number of processes given  in the configurations settings. After startup, ID numbers should be passed by  clients when requesting a new process. Using this method ensures that the  maximum number of processes given in the configuration is never exceeded.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if a new process was spawned</li>
+				<li><span class="field">todo:</span> Add a proper system for killing idle processes dynamically.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">usedby:</span> <a href="../../MiniHTTPD/MiniHTTPD_Server.html#methodstart">MiniHTTPD_Server::start()</a></li>
+				<li><span class="field">uses:</span> <a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Manager.html#methodcreateProcess">MiniFCGI_Manager::createProcess()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">bool</span>
+		<span class="method-name">
+			spawn
+		</span>
+					([<span class="var-type">integer</span>&nbsp;<span class="var-name">$ID</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$config</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$ID</span><span class="var-description">: a stored process ID number</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$config</span><span class="var-description">: the configuration settings</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodverifyProcesses" id="verifyProcesses"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static verifyProcesses</span> (line <span class="line-number">476</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks all of the processes in the pool and culls any that that seem to have  died or are not responding as expected.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Manager.html#methodprocessExists">MiniFCGI_Manager::processExists()</a></li>
+				<li><span class="field">todo:</span> This needs a much more robust approach.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			verifyProcesses
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">491</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Prevents instantiation of this static class.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__construct
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constABORT_REQUEST" id="ABORT_REQUEST"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ABORT_REQUEST</span>
+			 = <span class="const-default"> 2</span>
+			(line <span class="line-number">39</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constAUTHORIZER" id="AUTHORIZER"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">AUTHORIZER</span>
+			 = <span class="const-default"> 2</span>
+			(line <span class="line-number">28</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constBEGIN_REQUEST" id="BEGIN_REQUEST"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">BEGIN_REQUEST</span>
+			 = <span class="const-default"> 1</span>
+			(line <span class="line-number">38</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constCANT_MPX_CONN" id="CANT_MPX_CONN"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CANT_MPX_CONN</span>
+			 = <span class="const-default"> 1</span>
+			(line <span class="line-number">55</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constDATA" id="DATA"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">DATA</span>
+			 = <span class="const-default"> 8</span>
+			(line <span class="line-number">45</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constEND_REQUEST" id="END_REQUEST"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">END_REQUEST</span>
+			 = <span class="const-default"> 3</span>
+			(line <span class="line-number">40</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constFILTER" id="FILTER"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">FILTER</span>
+			 = <span class="const-default"> 3</span>
+			(line <span class="line-number">29</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constGET_VALUES" id="GET_VALUES"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">GET_VALUES</span>
+			 = <span class="const-default"> 9</span>
+			(line <span class="line-number">46</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constGET_VALUES_RESULT" id="GET_VALUES_RESULT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">GET_VALUES_RESULT</span>
+			 = <span class="const-default"> 10</span>
+			(line <span class="line-number">47</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constKEEP_CONN" id="KEEP_CONN"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">KEEP_CONN</span>
+			 = <span class="const-default"> 1</span>
+			(line <span class="line-number">32</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constMAX_LENGTH" id="MAX_LENGTH"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">MAX_LENGTH</span>
+			 = <span class="const-default"> 65536</span>
+			(line <span class="line-number">64</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Maximum length in bytes of FCGI records.</p>
+	
+	
+</div>
+<a name="constNO_FLAGS" id="NO_FLAGS"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">NO_FLAGS</span>
+			 = <span class="const-default"> 0</span>
+			(line <span class="line-number">69</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Nulls BEGIN_REQUEST flags</p>
+	
+	
+</div>
+<a name="constNULL_REQUEST_ID" id="NULL_REQUEST_ID"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">NULL_REQUEST_ID</span>
+			 = <span class="const-default"> 0</span>
+			(line <span class="line-number">51</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constOVERLOADED" id="OVERLOADED"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">OVERLOADED</span>
+			 = <span class="const-default"> 2</span>
+			(line <span class="line-number">56</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constPARAMS" id="PARAMS"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">PARAMS</span>
+			 = <span class="const-default"> 4</span>
+			(line <span class="line-number">41</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constREQUEST_COMPLETE" id="REQUEST_COMPLETE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">REQUEST_COMPLETE</span>
+			 = <span class="const-default"> 0</span>
+			(line <span class="line-number">54</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constRESPONDER" id="RESPONDER"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">RESPONDER</span>
+			 = <span class="const-default">  1</span>
+			(line <span class="line-number">27</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constSTDERR" id="STDERR"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">STDERR</span>
+			 = <span class="const-default"> 7</span>
+			(line <span class="line-number">44</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constSTDIN" id="STDIN"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">STDIN</span>
+			 = <span class="const-default"> 5</span>
+			(line <span class="line-number">42</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constSTDOUT" id="STDOUT"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">STDOUT</span>
+			 = <span class="const-default"> 6</span>
+			(line <span class="line-number">43</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constUNKNOWN_ROLE" id="UNKNOWN_ROLE"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">UNKNOWN_ROLE</span>
+			 = <span class="const-default"> 3</span>
+			(line <span class="line-number">57</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constUNKNOWN_TYPE" id="UNKNOWN_TYPE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">UNKNOWN_TYPE</span>
+			 = <span class="const-default"> 11</span>
+			(line <span class="line-number">48</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constVERSION_1" id="VERSION_1"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">VERSION_1</span>
+			 = <span class="const-default"> 1</span>
+			(line <span class="line-number">35</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 30 Jul 2010 22:16:15 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

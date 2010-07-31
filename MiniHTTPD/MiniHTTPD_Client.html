@@ -1,0 +1,1434 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class MiniHTTPD_Client</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class MiniHTTPD_Client</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The MiniHTTPD client class.</p>
+<p class="description"><p>This class handles client requests and sends the relevant responses via the  MiniHTTPD_Request and MiniHTTPD_Response objects that it creates for each new  client. If a client has requested dynamic content, the class also acts as a  bridge for the MiniFCGI_Client object. This design ensures that all of the  created objects are tied to the individual client connections for easier and  more transparent management of resources.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> MiniHTTPD Team</li>
+				<li><span class="field">copyright:</span> (c) 2010 MiniHTTPD Team</li>
+				<li><span class="field">license:</span> BSD</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---minihttpd---classes---client.php.html">/lib/minihttpd/classes/client.php</a> (line <span class="field">17</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																																																																								<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$address" title="details" class="var-name">$address</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$blockSize" title="details" class="var-name">$blockSize</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">bool</span>
+					<a href="#$debug" title="details" class="var-name">$debug</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../MiniHTTPD/MiniFCGI/MiniFCGI_Client.html">MiniFCGI_Client</a></span>
+					<a href="#$fcgi" title="details" class="var-name">$fcgi</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">bool</span>
+					<a href="#$finished" title="details" class="var-name">$finished</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$ID" title="details" class="var-name">$ID</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$input" title="details" class="var-name">$input</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../MiniHTTPD/MiniHTTPD_Logger.html">MiniHTTPD_Logger</a></span>
+					<a href="#$logger" title="details" class="var-name">$logger</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$numRequests" title="details" class="var-name">$numRequests</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$port" title="details" class="var-name">$port</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../MiniHTTPD/MiniHTTPD_Request.html">MiniHTTPD_Request</a></span>
+					<a href="#$request" title="details" class="var-name">$request</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+					<a href="#$response" title="details" class="var-name">$response</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">resource</span>
+					<a href="#$socket" title="details" class="var-name">$socket</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																																																																																						
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$ID</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$socket</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$peername</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#checkAuthorization" title="details" class="method-name">checkAuthorization</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$realm</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$users</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#finish" title="details" class="method-name">finish</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string|bool</span>
+										<a href="#getAPIDocsRoot" title="details" class="method-name">getAPIDocsRoot</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer|bool</span>
+										<a href="#getFCGIClientID" title="details" class="method-name">getFCGIClientID</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer|bool</span>
+										<a href="#getFCGIProcess" title="details" class="method-name">getFCGIProcess</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">resource|bool</span>
+										<a href="#getFCGISocket" title="details" class="method-name">getFCGISocket</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getID" title="details" class="method-name">getID</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">resource|bool</span>
+										<a href="#getSocket" title="details" class="method-name">getSocket</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#hasFCGI" title="details" class="method-name">hasFCGI</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#hasRequest" title="details" class="method-name">hasRequest</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#hasResponse" title="details" class="method-name">hasResponse</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#isFinished" title="details" class="method-name">isFinished</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#needsAuthorization" title="details" class="method-name">needsAuthorization</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#processRequest" title="details" class="method-name">processRequest</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#readFCGIResponse" title="details" class="method-name">readFCGIResponse</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#sendError" title="details" class="method-name">sendError</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$code</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$close</span> = <span class="var-default">true</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$headers</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#sendFCGIRequest" title="details" class="method-name">sendFCGIRequest</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#sendNotModified" title="details" class="method-name">sendNotModified</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#sendRedirect" title="details" class="method-name">sendRedirect</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$code</span> = <span class="var-default">302</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#sendResponse" title="details" class="method-name">sendResponse</a>
+											([<span class="var-type">bool</span>&nbsp;<span class="var-name">$finish</span> = <span class="var-default">true</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#sendServerInfo" title="details" class="method-name">sendServerInfo</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#sendServerStatus" title="details" class="method-name">sendServerStatus</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
+										<a href="#setInput" title="details" class="method-name">setInput</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$input</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a>|bool</span>
+										<a href="#setSocket" title="details" class="method-name">setSocket</a>
+											(<span class="var-type">resource</span>&nbsp;<span class="var-name">$sock</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
+										<a href="#setTimeout" title="details" class="method-name">setTimeout</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$secs</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
+										<a href="#startResponse" title="details" class="method-name">startResponse</a>
+											([<span class="var-type">integer</span>&nbsp;<span class="var-name">$code</span> = <span class="var-default">200</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$close</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#startStatic" title="details" class="method-name">startStatic</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$ext</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
+										<a href="#writeLog" title="details" class="method-name">writeLog</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$address" id="$address"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$address</span>
+						(line <span class="line-number">41</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The client's IP address.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$blockSize" id="$blockSize"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$blockSize</span>
+			 = <span class="var-default"> 16384</span>			(line <span class="line-number">83</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The maximum block size for outputting streamed responses.</p>
+	<ul class="tags">
+				<li><span class="field">var:</span> 16 KB</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$debug" id="$debug"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bool</span>
+			<span class="var-name">$debug</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number">23</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Should debugging output be enabled?</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$fcgi" id="$fcgi"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../MiniHTTPD/MiniFCGI/MiniFCGI_Client.html">MiniFCGI_Client</a></span>
+			<span class="var-name">$fcgi</span>
+						(line <span class="line-number">77</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The active FastCGI client object.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$finished" id="$finished"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bool</span>
+			<span class="var-name">$finished</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number">89</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Has the current client request been finished?</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$ID" id="$ID"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$ID</span>
+						(line <span class="line-number">29</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The client ID number.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$input" id="$input"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$input</span>
+						(line <span class="line-number">53</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The raw data for teh active request.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$logger" id="$logger"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../MiniHTTPD/MiniHTTPD_Logger.html">MiniHTTPD_Logger</a></span>
+			<span class="var-name">$logger</span>
+						(line <span class="line-number">71</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The active logger object for the client.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$numRequests" id="$numRequests"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$numRequests</span>
+			 = <span class="var-default"> 1</span>			(line <span class="line-number">95</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">A count of the client's completed requests.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$port" id="$port"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$port</span>
+						(line <span class="line-number">47</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The client's port number.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$request" id="$request"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../MiniHTTPD/MiniHTTPD_Request.html">MiniHTTPD_Request</a></span>
+			<span class="var-name">$request</span>
+						(line <span class="line-number">59</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The active request object for the client.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$response" id="$response"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
+			<span class="var-name">$response</span>
+						(line <span class="line-number">65</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The active response object for the client.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$socket" id="$socket"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">resource</span>
+			<span class="var-name">$socket</span>
+						(line <span class="line-number">35</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The client socket connection.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">102</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initalizes the client object.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$ID</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$socket</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$peername</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$ID</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$socket</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$peername</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckAuthorization" id="checkAuthorization"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkAuthorization</span> (line <span class="line-number">589</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the client is authorized to access the requested resource.</p>
+<p class="description"><p>This method uses the HTTP digest access authentication system. It will keep  repeating the authentication challenge if the attempt to authorize fails.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> false if client is not authorized</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			checkAuthorization
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$realm</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$users</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$realm</span><span class="var-description">: the authentication realm</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$users</span><span class="var-description">: list of valid users</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfinish" id="finish"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">finish</span> (line <span class="line-number">378</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Finalizes the client request/response.</p>
+<p class="description"><p>The main task here is to call any attached logger and clean up the  created objects.  Typically this will be called immediately after  sending the response, although error messages may be finished later.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			finish
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetAPIDocsRoot" id="getAPIDocsRoot"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAPIDocsRoot</span> (line <span class="line-number">847</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the path to the API documentation directory in the server's  private docroot.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the directory path, false if not authorized,                        true if the request needs to be redirected</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string|bool</span>
+		<span class="method-name">
+			getAPIDocsRoot
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$url</span><span class="var-description">: the requested url</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetFCGIClientID" id="getFCGIClientID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFCGIClientID</span> (line <span class="line-number">496</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the FCGI client ID number.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> ID number or false if no FCGI client is attached</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer|bool</span>
+		<span class="method-name">
+			getFCGIClientID
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetFCGIProcess" id="getFCGIProcess"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFCGIProcess</span> (line <span class="line-number">522</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the ID of the FCGI process with which the client is communicating.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> false if no FCGI process is attached</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer|bool</span>
+		<span class="method-name">
+			getFCGIProcess
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetFCGISocket" id="getFCGISocket"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFCGISocket</span> (line <span class="line-number">509</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the attached FCGI client stream socket.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> false if no client is attached</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">resource|bool</span>
+		<span class="method-name">
+			getFCGISocket
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetID" id="getID"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getID</span> (line <span class="line-number">397</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the client ID number.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getID
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetSocket" id="getSocket"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSocket</span> (line <span class="line-number">437</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the client stream socket.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> false if socket is invalid</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">resource|bool</span>
+		<span class="method-name">
+			getSocket
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasFCGI" id="hasFCGI"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasFCGI</span> (line <span class="line-number">486</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines if the client has an active FCGI request.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasFCGI
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasRequest" id="hasRequest"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasRequest</span> (line <span class="line-number">417</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the client has an active request.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasRequest
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasResponse" id="hasResponse"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasResponse</span> (line <span class="line-number">427</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the client has an active response.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasResponse
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisFinished" id="isFinished"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isFinished</span> (line <span class="line-number">407</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the client request/response has been finished.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			isFinished
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodneedsAuthorization" id="needsAuthorization"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">needsAuthorization</span> (line <span class="line-number">549</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the current request needs to be authorized.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			needsAuthorization
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodprocessRequest" id="processRequest"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">processRequest</span> (line <span class="line-number">123</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Processes the client request and determines the response type.</p>
+<p class="description"><p>This method contains most of the logic for handling client requests. First  it creates a request object from the raw input, then figures out whether  the request is for static or dynamic content. It is responsible for calling  the appropriate actions for the client response and reporting any errors  back to the main server loop.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the request has been successfully handled</li>
+				<li><span class="field">todo:</span> Refactor to make the whole class more modular and extensible, probably  by adding event hooks or similar.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			processRequest
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodreadFCGIResponse" id="readFCGIResponse"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">readFCGIResponse</span> (line <span class="line-number">266</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Receives the FCGI response and processes it for returning to the client.</p>
+<p class="description"><p>The main task here is to handle the raw response returned from the FastCGI  process and create a response object for communicating the result to the  client. This involves merging any received headers with the server's default  headers, calculating the content length, etc. It's more efficient in this  case to use a single response object bound to both the server client and  the FCGI client objects. Currently the whole of the  response body needs to  be buffered to get its content length, which is not ideal.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> false if the client response needs to be aborted</li>
+				<li><span class="field">todo:</span> Add support for chunked encoding as per HTTP/1.1.</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">uses:</span> <a href="../MiniHTTPD/MiniFCGI/MiniFCGI_Client.html#methodreadResponse">MiniFCGI_Client::readResponse()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			readFCGIResponse
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsendError" id="sendError"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">sendError</span> (line <span class="line-number">744</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends an error response to the client.</p>
+<p class="description"><p>This response will use the default error message template in the server's  private docroot templates directory.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			sendError
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$code</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$close</span> = <span class="var-default">true</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$headers</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$code</span><span class="var-description">: the error response code</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$message</span><span class="var-description">: the error response message</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$close</span><span class="var-description">: should the connection be closed after the response is sent?</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$headers</span><span class="var-description">: a list of additional headers to send</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsendFCGIRequest" id="sendFCGIRequest"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">sendFCGIRequest</span> (line <span class="line-number">563</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates an FCGI request for any dynamic content and sends it to any  available FastCGI process via a new MiniFCGI client object.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> false if the request could not be sent</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">uses:</span> <a href="../MiniHTTPD/MiniFCGI/MiniFCGI_Client.html#methodsendRequest">MiniFCGI_Client::sendRequest()</a></li>
+				<li><span class="field">uses:</span> <a href="../MiniHTTPD/MiniFCGI/MiniFCGI_Client.html#methodaddRequest">MiniFCGI_Client::addRequest()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			sendFCGIRequest
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsendNotModified" id="sendNotModified"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">sendNotModified</span> (line <span class="line-number">700</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends a 304 Not Modified response to the client for caching purposes.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			sendNotModified
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsendRedirect" id="sendRedirect"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">sendRedirect</span> (line <span class="line-number">715</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends a redirect response to the client.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			sendRedirect
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$code</span> = <span class="var-default">302</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$url</span><span class="var-description">: redirected url</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$code</span><span class="var-description">: redirection response code</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsendResponse" id="sendResponse"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">sendResponse</span> (line <span class="line-number">312</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends the completed response to the client.</p>
+<p class="description"><p>This is where any intermediate processing step should end. By this stage,  all of the respose headers should have been prepared, and the message  body either buffered in whole or waiting to be streamed to the client.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if response is sent successfully</li>
+				<li><span class="field">todo:</span> Support chunked encoding output as per HTTP/1.1</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			sendResponse
+		</span>
+					([<span class="var-type">bool</span>&nbsp;<span class="var-name">$finish</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$finish</span><span class="var-description">: should the response be finished here?</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsendServerInfo" id="sendServerInfo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">sendServerInfo</span> (line <span class="line-number">807</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Outputs the Server Info administration page.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> false if access is not authorized</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			sendServerInfo
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsendServerStatus" id="sendServerStatus"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">sendServerStatus</span> (line <span class="line-number">775</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Outputs the Server Status administration page.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> false if access is not authorized</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			sendServerStatus
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsetInput" id="setInput"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setInput</span> (line <span class="line-number">475</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the raw message input for the client.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
+		<span class="method-name">
+			setInput
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$input</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$input</span><span class="var-description">: message input</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetSocket" id="setSocket"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setSocket</span> (line <span class="line-number">448</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the client stream socket.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance or false if socket is invalid</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a>|bool</span>
+		<span class="method-name">
+			setSocket
+		</span>
+					(<span class="var-type">resource</span>&nbsp;<span class="var-name">$sock</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">resource</span>
+				<span class="var-name">$sock</span><span class="var-description">: the stream socket</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetTimeout" id="setTimeout"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTimeout</span> (line <span class="line-number">463</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the timeput on the client stream socket.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
+		<span class="method-name">
+			setTimeout
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$secs</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$secs</span><span class="var-description">: timeout in seconds</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodstartResponse" id="startResponse"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">startResponse</span> (line <span class="line-number">660</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Common initalization step for all response objects.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
+		<span class="method-name">
+			startResponse
+		</span>
+					([<span class="var-type">integer</span>&nbsp;<span class="var-name">$code</span> = <span class="var-default">200</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$close</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$code</span><span class="var-description">: response code</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$close</span><span class="var-description">: should the connection be closed after the response is sent?</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodstartStatic" id="startStatic"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">startStatic</span> (line <span class="line-number">626</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the response object for static requests.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			startStatic
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$ext</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$file</span><span class="var-description">: path to the requested file</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$ext</span><span class="var-description">: extension of the requested file</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodwriteLog" id="writeLog"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">writeLog</span> (line <span class="line-number">535</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Writes the current log line to the attached log.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
+		<span class="method-name">
+			writeLog
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 30 Jul 2010 22:16:13 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
