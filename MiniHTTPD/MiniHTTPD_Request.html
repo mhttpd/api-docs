@@ -239,7 +239,7 @@
 				<div class="method-definition">
 											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Request.html">MiniHTTPD_Request</a></span>
 										<a href="#rewriteUrlPath" title="details" class="method-name">rewriteUrlPath</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$search</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$replace</span> = <span class="var-default">''</span>], <span class="var-type">bool</span>&nbsp;<span class="var-name">$isLocation</span>)
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$search</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$replace</span> = <span class="var-default">''</span>], <span class="var-type">bool</span>&nbsp;<span class="var-name">$isBasePath</span>)
 									</div>
 														
 				<div class="method-definition">
@@ -377,12 +377,12 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">accepts</span> (line <span class="line-number">205</span>)
+		<span class="method-title">accepts</span> (line <span class="line-number">214</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Determines whether the client supports a particular HTTP option.</p>
-<p class="description"><p>This method searches the 'Accepts-*' headers for the given value, e,g, to  test whether the client supports gzip encoding: accepts('encoding', 'gzip').</p></p>
+<p class="description"><p>This method searches the 'Accept' (if $name is null) or 'Accepts-*' headers  for the given value, e,g, to test whether the client supports gzip encoding:  accepts('encoding', 'gzip').</p></p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -459,7 +459,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getClientInfo</span> (line <span class="line-number">290</span>)
+		<span class="method-title">getClientInfo</span> (line <span class="line-number">299</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -484,7 +484,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getContentLength</span> (line <span class="line-number">465</span>)
+		<span class="method-title">getContentLength</span> (line <span class="line-number">474</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -509,7 +509,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getContentType</span> (line <span class="line-number">455</span>)
+		<span class="method-title">getContentType</span> (line <span class="line-number">464</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -564,7 +564,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFilename</span> (line <span class="line-number">407</span>)
+		<span class="method-title">getFilename</span> (line <span class="line-number">416</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -589,7 +589,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFilepath</span> (line <span class="line-number">382</span>)
+		<span class="method-title">getFilepath</span> (line <span class="line-number">391</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -614,7 +614,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getMethod</span> (line <span class="line-number">266</span>)
+		<span class="method-title">getMethod</span> (line <span class="line-number">275</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -639,7 +639,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getPathInfo</span> (line <span class="line-number">443</span>)
+		<span class="method-title">getPathInfo</span> (line <span class="line-number">452</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -664,7 +664,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getProtocol</span> (line <span class="line-number">330</span>)
+		<span class="method-title">getProtocol</span> (line <span class="line-number">339</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -689,7 +689,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getQueryString</span> (line <span class="line-number">300</span>)
+		<span class="method-title">getQueryString</span> (line <span class="line-number">309</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -714,7 +714,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getReferer</span> (line <span class="line-number">350</span>)
+		<span class="method-title">getReferer</span> (line <span class="line-number">359</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -739,7 +739,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getRequestLine</span> (line <span class="line-number">340</span>)
+		<span class="method-title">getRequestLine</span> (line <span class="line-number">349</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -764,12 +764,12 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getScriptName</span> (line <span class="line-number">395</span>)
+		<span class="method-title">getScriptName</span> (line <span class="line-number">404</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Returns the calculated script name for the request.</p>
-<p class="description"><p>This may be modified depending on whether a virtual location is set for  the request to allow internal URLs to be written properly.</p></p>
+<p class="description"><p>This may be modified depending on whether a virtual path is set for the  request to allow internal links to be written properly.</p></p>
 	<ul class="tags">
 				<li><span class="field">return:</span> the script name</li>
 				<li><span class="field">access:</span> public</li>
@@ -790,7 +790,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getUrl</span> (line <span class="line-number">320</span>)
+		<span class="method-title">getUrl</span> (line <span class="line-number">329</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -815,7 +815,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getUrlPath</span> (line <span class="line-number">310</span>)
+		<span class="method-title">getUrlPath</span> (line <span class="line-number">319</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -840,7 +840,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getUserAgent</span> (line <span class="line-number">360</span>)
+		<span class="method-title">getUserAgent</span> (line <span class="line-number">369</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -865,7 +865,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">isAuthorized</span> (line <span class="line-number">486</span>)
+		<span class="method-title">isAuthorized</span> (line <span class="line-number">495</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -898,7 +898,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">isChunked</span> (line <span class="line-number">226</span>)
+		<span class="method-title">isChunked</span> (line <span class="line-number">235</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -922,7 +922,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">isGet</span> (line <span class="line-number">256</span>)
+		<span class="method-title">isGet</span> (line <span class="line-number">265</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -946,7 +946,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">isHead</span> (line <span class="line-number">246</span>)
+		<span class="method-title">isHead</span> (line <span class="line-number">255</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -970,7 +970,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">isPost</span> (line <span class="line-number">236</span>)
+		<span class="method-title">isPost</span> (line <span class="line-number">245</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -994,7 +994,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">isValid</span> (line <span class="line-number">216</span>)
+		<span class="method-title">isValid</span> (line <span class="line-number">225</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1018,11 +1018,12 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">rewriteUrlPath</span> (line <span class="line-number">180</span>)
+		<span class="method-title">rewriteUrlPath</span> (line <span class="line-number">186</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Rewrites the request URL to allow transparent virtual to real path mapping.</p>
+<p class="short-description">Rewrites the path element of the request URL to allow transparent virtual  to real path mapping.</p>
+<p class="description"><p>This is especially useful for fixing issues with links given as relative  paths where the browser will automatically add the base path. Any virtual  path elements (i.e. ones that can't be found in the docroot) should be  rewritten in this case usually to just '/'.</p></p>
 	<ul class="tags">
 				<li><span class="field">return:</span> this instance</li>
 				<li><span class="field">access:</span> public</li>
@@ -1033,7 +1034,7 @@
 		<span class="method-name">
 			rewriteUrlPath
 		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$search</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$replace</span> = <span class="var-default">''</span>], <span class="var-type">bool</span>&nbsp;<span class="var-name">$isLocation</span>)
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$search</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$replace</span> = <span class="var-default">''</span>], <span class="var-type">bool</span>&nbsp;<span class="var-name">$isBasePath</span>)
 			</div>
 	
 			<ul class="parameters">
@@ -1045,7 +1046,7 @@
 				<span class="var-name">$replace</span><span class="var-description">: the replacement value</span>			</li>
 					<li>
 				<span class="var-type">bool</span>
-				<span class="var-name">$isLocation</span><span class="var-description">: should $search be stored as a virtual location?</span>			</li>
+				<span class="var-name">$isBasePath</span><span class="var-description">: should $search be stored as the new base path?</span>			</li>
 				</ul>
 		
 			
@@ -1054,7 +1055,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setClientInfo</span> (line <span class="line-number">278</span>)
+		<span class="method-title">setClientInfo</span> (line <span class="line-number">287</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1087,7 +1088,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setFilename</span> (line <span class="line-number">418</span>)
+		<span class="method-title">setFilename</span> (line <span class="line-number">427</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1117,7 +1118,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setFilepath</span> (line <span class="line-number">371</span>)
+		<span class="method-title">setFilepath</span> (line <span class="line-number">380</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1147,7 +1148,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setPathTranslated</span> (line <span class="line-number">432</span>)
+		<span class="method-title">setPathTranslated</span> (line <span class="line-number">441</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1180,7 +1181,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Fri, 30 Jul 2010 22:16:15 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sun, 01 Aug 2010 13:23:43 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
