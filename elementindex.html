@@ -86,15 +86,15 @@
 						<span class="method-title">addConfig</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Server.html#methodaddConfig">MiniHTTPD_Server::addConfig()</a> in server.php</div>
-							<div class="index-item-description">Parses the given configuration settings and stores them locally.</div>
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Logger.html#methodaddConfig">MiniHTTPD_Logger::addConfig()</a> in logger.php</div>
+							<div class="index-item-description">Stores the logger configuration locally.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">addConfig</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Logger.html#methodaddConfig">MiniHTTPD_Logger::addConfig()</a> in logger.php</div>
-							<div class="index-item-description">Stores the logger configuration locally.</div>
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Server.html#methodaddConfig">MiniHTTPD_Server::addConfig()</a> in server.php</div>
+							<div class="index-item-description">Parses the given configuration settings and stores them locally.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">addHeader</span>
@@ -114,6 +114,13 @@
 						<span class="method-title">addRequest</span>
 					</dt>
 		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Logger.html#methodaddRequest">MiniHTTPD_Logger::addRequest()</a> in logger.php</div>
+							<div class="index-item-description">Parses a request object to build the initial log info, or adds the request  info directly.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">addRequest</span>
+					</dt>
+		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniFCGI/MiniFCGI_Client.html#methodaddRequest">MiniFCGI_Client::addRequest()</a> in client.php</div>
 							<div class="index-item-description">Parses the server client request and builds the FCGI request.</div>
 					</dd>
@@ -123,13 +130,6 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniFCGI/MiniFCGI_Manager.html#methodaddRequest">MiniFCGI_Manager::addRequest()</a> in manager.php</div>
 							<div class="index-item-description">Increments the request count for a running process.</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">addRequest</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Logger.html#methodaddRequest">MiniHTTPD_Logger::addRequest()</a> in logger.php</div>
-							<div class="index-item-description">Parses a request object to build the initial log info, or adds the request  info directly.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">addResponse</span>
@@ -144,6 +144,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Server.html#methodallowAPIDocs">MiniHTTPD_Server::allowAPIDocs()</a> in server.php</div>
 							<div class="index-item-description">Determines whether the API Documentation page should be displayed or not.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">allowExtrasDir</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Server.html#methodallowExtrasDir">MiniHTTPD_Server::allowExtrasDir()</a> in server.php</div>
+							<div class="index-item-description">Determines whether the Extras private server directory is accessible or not.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">allowServerInfo</span>
@@ -278,7 +285,7 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Message.html#var$codes">MiniHTTPD_Message::$codes</a> in message.php</div>
-							<div class="index-item-description">List of HTTP/1.1 response codes and reasons</div>
+							<div class="index-item-description">List of HTTP/1.1 response codes and messages</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$config</span>
@@ -421,6 +428,13 @@
 						<span class="var-title">$debug</span>
 					</dt>
 		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Server.html#var$debug">MiniHTTPD_Server::$debug</a> in server.php</div>
+							<div class="index-item-description">Should debugging output be enabled?</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$debug</span>
+					</dt>
+		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#var$debug">MiniHTTPD_Client::$debug</a> in client.php</div>
 							<div class="index-item-description">Should debugging output be enabled?</div>
 					</dd>
@@ -439,11 +453,11 @@
 							<div class="index-item-description">Should debugging output be enabled?</div>
 					</dd>
 			<dt class="field">
-						<span class="var-title">$debug</span>
+						<span class="var-title">$docroot</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Server.html#var$debug">MiniHTTPD_Server::$debug</a> in server.php</div>
-							<div class="index-item-description">Should debugging output be enabled?</div>
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Request.html#var$docroot">MiniHTTPD_Request::$docroot</a> in request.php</div>
+							<div class="index-item-description">The server docroot accessible to this request.</div>
 					</dd>
 			<dt class="field">
 						DATA
@@ -510,6 +524,13 @@
 							<div class="index-item-description">The active FastCGI client object.</div>
 					</dd>
 			<dt class="field">
+						<span class="var-title">$fileInfo</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Request.html#var$fileInfo">MiniHTTPD_Request::$fileInfo</a> in request.php</div>
+							<div class="index-item-description">Pre-parsed information about the requested file.</div>
+					</dd>
+			<dt class="field">
 						<span class="var-title">$filepath</span>
 					</dt>
 		<dd class="index-item-body">
@@ -534,13 +555,6 @@
 						<span class="method-title">factory</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Server.html#methodfactory">MiniHTTPD_Server::factory()</a> in server.php</div>
-							<div class="index-item-description">Factory method for creating MiniHTTPD objects.</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">factory</span>
-					</dt>
-		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniFCGI/MiniFCGI_Record.html#methodfactory">MiniFCGI_Record::factory()</a> in record.php</div>
 							<div class="index-item-description">Factory method for creating new FCGI records.</div>
 					</dd>
@@ -550,6 +564,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Logger.html#methodfactory">MiniHTTPD_Logger::factory()</a> in logger.php</div>
 							<div class="index-item-description">Factory method for creating configured logger objects.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">factory</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Server.html#methodfactory">MiniHTTPD_Server::factory()</a> in server.php</div>
+							<div class="index-item-description">Factory method for creating MiniHTTPD objects.</div>
 					</dd>
 			<dt class="field">
 						FILTER
@@ -595,13 +616,6 @@
 							<div class="index-item-description">Returns the configured timeout for Keep-Alive connections.</div>
 					</dd>
 			<dt class="field">
-						<span class="method-title">getAPIDocsRoot</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#methodgetAPIDocsRoot">MiniHTTPD_Client::getAPIDocsRoot()</a> in client.php</div>
-							<div class="index-item-description">Returns the path to the API documentation directory in the server's  private docroot.</div>
-					</dd>
-			<dt class="field">
 						<span class="method-title">getBaseUrl</span>
 					</dt>
 		<dd class="index-item-body">
@@ -640,15 +654,15 @@
 						<span class="method-title">getContentLength</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Request.html#methodgetContentLength">MiniHTTPD_Request::getContentLength()</a> in request.php</div>
-							<div class="index-item-description">Returns the request content length.</div>
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Response.html#methodgetContentLength">MiniHTTPD_Response::getContentLength()</a> in response.php</div>
+							<div class="index-item-description">Returns the response content length.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getContentLength</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Response.html#methodgetContentLength">MiniHTTPD_Response::getContentLength()</a> in response.php</div>
-							<div class="index-item-description">Returns the response content length.</div>
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Request.html#methodgetContentLength">MiniHTTPD_Request::getContentLength()</a> in request.php</div>
+							<div class="index-item-description">Returns the request content length.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getContentType</span>
@@ -663,6 +677,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Server.html#methodgetContext">MiniHTTPD_Server::getContext()</a> in server.php</div>
 							<div class="index-item-description">Creates a stream context for the main server listening socket based on the  configured settings.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getDocroot</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Request.html#methodgetDocroot">MiniHTTPD_Request::getDocroot()</a> in request.php</div>
+							<div class="index-item-description">Returns the docroot in which the request may search for files.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getDocroot</span>
@@ -733,6 +754,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Logger.html#methodgetFormatted">MiniHTTPD_Logger::getFormatted()</a> in logger.php</div>
 							<div class="index-item-description">Returns a formatted string from the currently stored log entry info.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getHandler</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Request.html#methodgetHandler">MiniHTTPD_Request::getHandler()</a> in request.php</div>
+							<div class="index-item-description">Returns the currently active request handler.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getHeader</span>
@@ -913,15 +941,15 @@
 						<span class="method-title">getSocket</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniFCGI/MiniFCGI_Client.html#methodgetSocket">MiniFCGI_Client::getSocket()</a> in client.php</div>
-							<div class="index-item-description">Returns the active FCGI socket connection.</div>
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#methodgetSocket">MiniHTTPD_Client::getSocket()</a> in client.php</div>
+							<div class="index-item-description">Returns the client stream socket.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getSocket</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#methodgetSocket">MiniHTTPD_Client::getSocket()</a> in client.php</div>
-							<div class="index-item-description">Returns the client stream socket.</div>
+			<div class="index-item-details"><a href="MiniHTTPD/MiniFCGI/MiniFCGI_Client.html#methodgetSocket">MiniFCGI_Client::getSocket()</a> in client.php</div>
+							<div class="index-item-description">Returns the active FCGI socket connection.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getSoftwareInfo</span>
@@ -981,11 +1009,25 @@
 	</div>
 	<dl>
 			<dt class="field">
-						<span class="var-title">$headers</span>
+						<span class="var-title">$handler</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Message.html#var$headers">MiniHTTPD_Message::$headers</a> in message.php</div>
-							<div class="index-item-description">The list of parsed message headers.</div>
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#var$handler">MiniHTTPD_Client::$handler</a> in client.php</div>
+							<div class="index-item-description">Information about the active request handler.</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$handlers</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#var$handlers">MiniHTTPD_Client::$handlers</a> in client.php</div>
+							<div class="index-item-description">The configured request handlers for the client.</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$hasHeaderBlock</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Message.html#var$hasHeaderBlock">MiniHTTPD_Message::$hasHeaderBlock</a> in message.php</div>
+							<div class="index-item-description">Has the whole header block been parsed?</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$headers</span>
@@ -995,11 +1037,60 @@
 							<div class="index-item-description">The default list of response headers.</div>
 					</dd>
 			<dt class="field">
+						<span class="var-title">$headers</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Message.html#var$headers">MiniHTTPD_Message::$headers</a> in message.php</div>
+							<div class="index-item-description">The list of parsed message headers.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">handleDirectory</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#methodhandleDirectory">MiniHTTPD_Client::handleDirectory()</a> in client.php</div>
+							<div class="index-item-description">Handles requests for directories. If a default index file is found in the  directory, the request will be re-processed to serve this file.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">handleDynamic</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#methodhandleDynamic">MiniHTTPD_Client::handleDynamic()</a> in client.php</div>
+							<div class="index-item-description">Handles dynamic requests that need an FCGI response.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">handlePrivate</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#methodhandlePrivate">MiniHTTPD_Client::handlePrivate()</a> in client.php</div>
+							<div class="index-item-description">Handles requests for private server directories, checks access authorization  and changes the configured docroot to the private path.</div>
+					</dd>
+			<dt class="field">
 						<span class="method-title">handleResponse</span>
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Server.html#methodhandleResponse">MiniHTTPD_Server::handleResponse()</a> in server.php</div>
 							<div class="index-item-description">Handles the client response for any unfinished requests.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">handleServerAdmin</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#methodhandleServerAdmin">MiniHTTPD_Client::handleServerAdmin()</a> in client.php</div>
+							<div class="index-item-description">Handles requests for internal server admin information.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">handleStatic</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#methodhandleStatic">MiniHTTPD_Client::handleStatic()</a> in client.php</div>
+							<div class="index-item-description">Handles requests for static files, including last modified queries.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">hasAllHeaders</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Message.html#methodhasAllHeaders">MiniHTTPD_Message::hasAllHeaders()</a> in message.php</div>
+							<div class="index-item-description">Determines whether the current object has finished parsing headers.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">hasBody</span>
@@ -1132,7 +1223,7 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#var$input">MiniHTTPD_Client::$input</a> in client.php</div>
-							<div class="index-item-description">The raw data for teh active request.</div>
+							<div class="index-item-description">The raw data for the active request.</div>
 					</dd>
 			<dt class="field">
 						<span class="const-title">INIPATH</span>
@@ -1393,6 +1484,13 @@
 							<div class="index-item-description">Determines whether the current request needs to be authorized.</div>
 					</dd>
 			<dt class="field">
+						<span class="method-title">needsTrailingSlash</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Request.html#methodneedsTrailingSlash">MiniHTTPD_Request::needsTrailingSlash()</a> in request.php</div>
+							<div class="index-item-description">Tests whether a request URL needs a trailing slash (mainly for redirecting  to a directory with '301 Moved Permanently'). If a URL is not passed as a  parameter, the current request URL will be tested instead.</div>
+					</dd>
+			<dt class="field">
 						NO_FLAGS
 					</dt>
 		<dd class="index-item-body">
@@ -1479,6 +1577,13 @@
 							<div class="index-item-description">Parses a HTTP digest authentication string.</div>
 					</dd>
 			<dt class="field">
+						<span class="method-title">parseHttpStatus</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Response.html#methodparseHttpStatus">MiniHTTPD_Response::parseHttpStatus()</a> in response.php</div>
+							<div class="index-item-description">Parses a http status line for code and message (e.g. from FCGI response).</div>
+					</dd>
+			<dt class="field">
 						<span class="method-title">processExists</span>
 					</dt>
 		<dd class="index-item-body">
@@ -1490,7 +1595,7 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#methodprocessRequest">MiniHTTPD_Client::processRequest()</a> in client.php</div>
-							<div class="index-item-description">Processes the client request and determines the response type.</div>
+							<div class="index-item-description">Processes the client request and manages the request handlers.</div>
 					</dd>
 			<dt class="field">
 						PROTOCOL
@@ -1507,6 +1612,13 @@
 		<div style="clear: both"></div>
 	</div>
 	<dl>
+			<dt class="field">
+						<span class="var-title">$reprocessing</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#var$reprocessing">MiniHTTPD_Client::$reprocessing</a> in client.php</div>
+							<div class="index-item-description">Is the current request being reprocessed?</div>
+					</dd>
 			<dt class="field">
 						<span class="var-title">$request</span>
 					</dt>
@@ -1532,15 +1644,15 @@
 						<span class="var-title">$response</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniFCGI/MiniFCGI_Client.html#var$response">MiniFCGI_Client::$response</a> in client.php</div>
-							<div class="index-item-description">The FCGI response object, typically bound to the server client.</div>
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#var$response">MiniHTTPD_Client::$response</a> in client.php</div>
+							<div class="index-item-description">The active response object for the client.</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$response</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#var$response">MiniHTTPD_Client::$response</a> in client.php</div>
-							<div class="index-item-description">The active response object for the client.</div>
+			<div class="index-item-details"><a href="MiniHTTPD/MiniFCGI/MiniFCGI_Client.html#var$response">MiniFCGI_Client::$response</a> in client.php</div>
+							<div class="index-item-description">The FCGI response object, typically bound to the server client.</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$running</span>
@@ -1589,6 +1701,13 @@
 							<div class="index-item-description">Parses the received FCGI response records and builds the response object.</div>
 					</dd>
 			<dt class="field">
+						<span class="method-title">refreshFileInfo</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Request.html#methodrefreshFileInfo">MiniHTTPD_Request::refreshFileInfo()</a> in request.php</div>
+							<div class="index-item-description">Helper method that refreshes the stored file info, is chainable.</div>
+					</dd>
+			<dt class="field">
 						<span class="method-title">removeClient</span>
 					</dt>
 		<dd class="index-item-body">
@@ -1621,7 +1740,7 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Request.html#methodrewriteUrlPath">MiniHTTPD_Request::rewriteUrlPath()</a> in request.php</div>
-							<div class="index-item-description">Rewrites the request URL to allow transparent virtual to real path mapping.</div>
+							<div class="index-item-description">Rewrites the path element of the request URL to allow transparent virtual  to real path mapping.</div>
 					</dd>
 		</dl>
 	<a name="s"></a>
@@ -1642,15 +1761,15 @@
 						<span class="var-title">$socket</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#var$socket">MiniHTTPD_Client::$socket</a> in client.php</div>
-							<div class="index-item-description">The client socket connection.</div>
+			<div class="index-item-details"><a href="MiniHTTPD/MiniFCGI/MiniFCGI_Record.html#var$socket">MiniFCGI_Record::$socket</a> in record.php</div>
+							<div class="index-item-description">The active FCGI process socket connection.</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$socket</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="MiniHTTPD/MiniFCGI/MiniFCGI_Record.html#var$socket">MiniFCGI_Record::$socket</a> in record.php</div>
-							<div class="index-item-description">The active FCGI process socket connection.</div>
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#var$socket">MiniHTTPD_Client::$socket</a> in client.php</div>
+							<div class="index-item-description">The client socket connection.</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$status</span>
@@ -1729,11 +1848,24 @@
 							<div class="index-item-description">Outputs the Server Status administration page.</div>
 					</dd>
 			<dt class="field">
+						<span class="method-title">setBody</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Message.html#methodsetBody">MiniHTTPD_Message::setBody()</a> in message.php</div>
+					</dd>
+			<dt class="field">
 						<span class="method-title">setClientInfo</span>
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Request.html#methodsetClientInfo">MiniHTTPD_Request::setClientInfo()</a> in request.php</div>
 							<div class="index-item-description">Stores the client connection info locally.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">setDocroot</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Request.html#methodsetDocroot">MiniHTTPD_Request::setDocroot()</a> in request.php</div>
+							<div class="index-item-description">Sets the docroot path for the request.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">setFilename</span>
@@ -1755,6 +1887,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniFCGI/MiniFCGI_Record.html#methodsetFlags">MiniFCGI_Record::setFlags()</a> in record.php</div>
 							<div class="index-item-description">Sets the FCGI Begin Request record flags.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">setHandler</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Request.html#methodsetHandler">MiniHTTPD_Request::setHandler()</a> in request.php</div>
+							<div class="index-item-description">Sets the currently active request handler.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">setHeader</span>
@@ -1817,7 +1956,7 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Response.html#methodsetStatusCode">MiniHTTPD_Response::setStatusCode()</a> in response.php</div>
-							<div class="index-item-description">Sets the response status code.</div>
+							<div class="index-item-description">Sets the response status code and http status line.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">setStream</span>
@@ -1860,6 +1999,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Server.html#methodstart">MiniHTTPD_Server::start()</a> in server.php</div>
 							<div class="index-item-description">Initializes the server with the given configuration.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">startRequest</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="MiniHTTPD/MiniHTTPD_Client.html#methodstartRequest">MiniHTTPD_Client::startRequest()</a> in client.php</div>
+							<div class="index-item-description">Creates the active request object for the client, parses the input for headers  and retrieves any posted content body.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">startResponse</span>
