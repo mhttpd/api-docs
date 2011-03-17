@@ -23,7 +23,7 @@
 	<div class="info-box-body">
         		<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">The MiniHTTPD request class.</p>
-<p class="description"><p>Apart from overloading any members in the base message class, the main  responsibility of this class is to provide the information needed by the  client to process the request and determine the relevant response. Much of  this class therefore consists of accessor or query methods.</p></p>
+<p class="description"><p>Apart from overloading any members in the base message class, the main  responsibility of this class is to provide the information needed by the  client and request handlers to process the request and determine the relevant  response. Much of this class therefore consists of accessor or query methods.</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> MiniHTTPD Team</li>
 				<li><span class="field">copyright:</span> (c) 2010 MiniHTTPD Team</li>
@@ -87,13 +87,19 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																																																																																																										
+																																																																																																																																																																																																																																																		
 				<div class="method-definition">
 					static 						<span class="method-result">array|false</span>
 										<a href="#parseHTTPDigest" title="details" class="method-name">parseHTTPDigest</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
 									</div>
-																																																																																		
+																																																																																						
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#unChunk" title="details" class="method-name">unChunk</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$chunked</span>)
+									</div>
+																		
 				<div class="method-definition">
 											<span class="method-result">bool</span>
 										<a href="#accepts" title="details" class="method-name">accepts</a>
@@ -155,12 +161,6 @@
 									</div>
 														
 				<div class="method-definition">
-											<span class="method-result">MiniHTTPD_Request_Handler</span>
-										<a href="#getHandler" title="details" class="method-name">getHandler</a>
-										()
-									</div>
-														
-				<div class="method-definition">
 											<span class="method-result">string</span>
 										<a href="#getMethod" title="details" class="method-name">getMethod</a>
 										()
@@ -185,6 +185,12 @@
 									</div>
 														
 				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getRedirectInfo" title="details" class="method-name">getRedirectInfo</a>
+										()
+									</div>
+														
+				<div class="method-definition">
 											<span class="method-result">string</span>
 										<a href="#getReferer" title="details" class="method-name">getReferer</a>
 										()
@@ -205,7 +211,13 @@
 				<div class="method-definition">
 											<span class="method-result">string</span>
 										<a href="#getUrl" title="details" class="method-name">getUrl</a>
-										()
+											([<span class="var-type">bool</span>&nbsp;<span class="var-name">$rewritten</span> = <span class="var-default">true</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getUrlFilepath" title="details" class="method-name">getUrlFilepath</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$full</span> = <span class="var-default">true</span>])
 									</div>
 														
 				<div class="method-definition">
@@ -300,8 +312,8 @@
 														
 				<div class="method-definition">
 											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Request.html">MiniHTTPD_Request</a></span>
-										<a href="#setHandler" title="details" class="method-name">setHandler</a>
-											(<span class="var-type"></span>&nbsp;<span class="var-name">$handler</span>)
+										<a href="#setPathInfo" title="details" class="method-name">setPathInfo</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$pathinfo</span>)
 									</div>
 														
 				<div class="method-definition">
@@ -309,7 +321,13 @@
 										<a href="#setPathTranslated" title="details" class="method-name">setPathTranslated</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
 									</div>
-											</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Request.html">MiniHTTPD_Request</a></span>
+										<a href="#setRewriteInfo" title="details" class="method-name">setRewriteInfo</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$info</span>)
+									</div>
+																			</div>
 		</div>
 	</div>		
 
@@ -328,13 +346,13 @@
 		<div class="info-box-body">
 			
 <a name="var$docroot" id="$docroot"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$docroot</span>
-						(line <span class="line-number">59</span>)
+						(line <span class="line-number">81</span>)
 		</span>
 	</div>
 
@@ -350,13 +368,13 @@
 
 </div>
 <a name="var$fileInfo" id="$fileInfo"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">array</span>
 			<span class="var-name">$fileInfo</span>
-			 = <span class="var-default">array()</span>			(line <span class="line-number">71</span>)
+			 = <span class="var-default">array()</span>			(line <span class="line-number">93</span>)
 		</span>
 	</div>
 
@@ -372,13 +390,13 @@
 
 </div>
 <a name="var$filepath" id="$filepath"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$filepath</span>
-						(line <span class="line-number">65</span>)
+						(line <span class="line-number">87</span>)
 		</span>
 	</div>
 
@@ -394,13 +412,13 @@
 
 </div>
 <a name="var$info" id="$info"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">array</span>
 			<span class="var-name">$info</span>
-			 = <span class="var-default">array()</span>			(line <span class="line-number">53</span>)
+			 = <span class="var-default">array()</span>			(line <span class="line-number">75</span>)
 		</span>
 	</div>
 
@@ -431,10 +449,10 @@
 		<div class="info-box-body">
 			<A NAME='method_detail'></A>
 <a name="methodparseHTTPDigest" id="parseHTTPDigest"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static parseHTTPDigest</span> (line <span class="line-number">27</span>)
+		<span class="method-title">static parseHTTPDigest</span> (line <span class="line-number">49</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -461,11 +479,41 @@
 		
 			
 	</div>
+<a name="methodunChunk" id="unChunk"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static unChunk</span> (line <span class="line-number">25</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Decodes strings sent via chunked transport-encoding.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the decoded string</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			unChunk
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$chunked</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$chunked</span><span class="var-description">: the chunked string</span>			</li>
+				</ul>
+		
+			
+	</div>
 <a name="methodaccepts" id="accepts"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">accepts</span> (line <span class="line-number">288</span>)
+		<span class="method-title">accepts</span> (line <span class="line-number">336</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -498,7 +546,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">asArray</span> (line <span class="line-number">78</span>)
+		<span class="method-title">asArray</span> (line <span class="line-number">100</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -522,7 +570,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">asString</span> (line <span class="line-number">97</span>)
+		<span class="method-title">asString</span> (line <span class="line-number">119</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -547,7 +595,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getClientInfo</span> (line <span class="line-number">373</span>)
+		<span class="method-title">getClientInfo</span> (line <span class="line-number">421</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -572,7 +620,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getContentLength</span> (line <span class="line-number">596</span>)
+		<span class="method-title">getContentLength</span> (line <span class="line-number">705</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -597,7 +645,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getContentType</span> (line <span class="line-number">586</span>)
+		<span class="method-title">getContentType</span> (line <span class="line-number">695</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -622,7 +670,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getDocroot</span> (line <span class="line-number">487</span>)
+		<span class="method-title">getDocroot</span> (line <span class="line-number">606</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -647,11 +695,12 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFileInfo</span> (line <span class="line-number">127</span>)
+		<span class="method-title">getFileInfo</span> (line <span class="line-number">152</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Returns an array of information about the requested file.</p>
+<p class="description"><p>By default this method uses the result of the last call, so if the request  details are changed it should be re-called with $refresh set too true.</p></p>
 	<ul class="tags">
 				<li><span class="field">return:</span> the pathinfo() output of the requested file</li>
 				<li><span class="field">access:</span> public</li>
@@ -680,7 +729,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFilename</span> (line <span class="line-number">538</span>)
+		<span class="method-title">getFilename</span> (line <span class="line-number">635</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -705,7 +754,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFilepath</span> (line <span class="line-number">465</span>)
+		<span class="method-title">getFilepath</span> (line <span class="line-number">583</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -726,36 +775,11 @@
 		
 			
 	</div>
-<a name="methodgetHandler" id="getHandler"><!-- --></a>
+<a name="methodgetMethod" id="getMethod"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getHandler</span> (line <span class="line-number">509</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Returns the currently active request handler.</p>
-	<ul class="tags">
-				<li><span class="field">return:</span> the request handler</li>
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-		<span class="method-result">MiniHTTPD_Request_Handler</span>
-		<span class="method-name">
-			getHandler
-		</span>
-				()
-			</div>
-	
-		
-			
-	</div>
-<a name="methodgetMethod" id="getMethod"><!-- --></a>
-<div class="oddrow">
-	
-	<div class="method-header">
-		<span class="method-title">getMethod</span> (line <span class="line-number">349</span>)
+		<span class="method-title">getMethod</span> (line <span class="line-number">397</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -777,10 +801,10 @@
 			
 	</div>
 <a name="methodgetPathInfo" id="getPathInfo"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getPathInfo</span> (line <span class="line-number">574</span>)
+		<span class="method-title">getPathInfo</span> (line <span class="line-number">671</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -802,10 +826,10 @@
 			
 	</div>
 <a name="methodgetProtocol" id="getProtocol"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getProtocol</span> (line <span class="line-number">413</span>)
+		<span class="method-title">getProtocol</span> (line <span class="line-number">531</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -827,10 +851,10 @@
 			
 	</div>
 <a name="methodgetQueryString" id="getQueryString"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getQueryString</span> (line <span class="line-number">383</span>)
+		<span class="method-title">getQueryString</span> (line <span class="line-number">431</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -851,11 +875,37 @@
 		
 			
 	</div>
+<a name="methodgetRedirectInfo" id="getRedirectInfo"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRedirectInfo</span> (line <span class="line-number">503</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the info for the redirected/rewritten request, mainly for use with  FastCGI requests.</p>
+<p class="description"><p>Note that if redirect_status is set to false in the info, no redirect values  will be passed to the FCGI process. This means the loss of variables such as  REDIRECT_URL in scripts, but PATH_INFO and PHP_SELF work the same as in a  non-CGI mode. With the redirect info added, ORIG_PATH_INFO must be used in  scripts instead, and PHP_SELF won't append any path info.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the redirected info</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getRedirectInfo
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
 <a name="methodgetReferer" id="getReferer"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getReferer</span> (line <span class="line-number">433</span>)
+		<span class="method-title">getReferer</span> (line <span class="line-number">551</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -880,7 +930,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getRequestLine</span> (line <span class="line-number">423</span>)
+		<span class="method-title">getRequestLine</span> (line <span class="line-number">541</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -905,7 +955,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getScriptName</span> (line <span class="line-number">524</span>)
+		<span class="method-title">getScriptName</span> (line <span class="line-number">621</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -931,13 +981,13 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getUrl</span> (line <span class="line-number">403</span>)
+		<span class="method-title">getUrl</span> (line <span class="line-number">481</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Returns the unparsed request URL.</p>
+<p class="short-description">Returns the unparsed request URL. By default any rewritten URL will be  returned, or the original request URL can be returned by setting the  parameter to false.</p>
 	<ul class="tags">
-				<li><span class="field">return:</span> the request URL</li>
+				<li><span class="field">return:</span> the current request URL</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -946,17 +996,52 @@
 		<span class="method-name">
 			getUrl
 		</span>
-				()
+					([<span class="var-type">bool</span>&nbsp;<span class="var-name">$rewritten</span> = <span class="var-default">true</span>])
 			</div>
 	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$rewritten</span><span class="var-description">: should the rewritten URL be returned?</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetUrlFilepath" id="getUrlFilepath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUrlFilepath</span> (line <span class="line-number">463</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a full file path string based on the parsed URL filename. Useful for  testing quickly whether the request is for a known file or directory.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the full file path</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUrlFilepath
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$full</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$full</span>			</li>
+				</ul>
 		
 			
 	</div>
 <a name="methodgetUrlPath" id="getUrlPath"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getUrlPath</span> (line <span class="line-number">393</span>)
+		<span class="method-title">getUrlPath</span> (line <span class="line-number">447</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -978,10 +1063,10 @@
 			
 	</div>
 <a name="methodgetUserAgent" id="getUserAgent"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getUserAgent</span> (line <span class="line-number">443</span>)
+		<span class="method-title">getUserAgent</span> (line <span class="line-number">561</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1003,10 +1088,10 @@
 			
 	</div>
 <a name="methodisAuthorized" id="isAuthorized"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">isAuthorized</span> (line <span class="line-number">617</span>)
+		<span class="method-title">isAuthorized</span> (line <span class="line-number">726</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1036,10 +1121,10 @@
 			
 	</div>
 <a name="methodisChunked" id="isChunked"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">isChunked</span> (line <span class="line-number">309</span>)
+		<span class="method-title">isChunked</span> (line <span class="line-number">357</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1060,10 +1145,10 @@
 			
 	</div>
 <a name="methodisGet" id="isGet"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">isGet</span> (line <span class="line-number">339</span>)
+		<span class="method-title">isGet</span> (line <span class="line-number">387</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1084,10 +1169,10 @@
 			
 	</div>
 <a name="methodisHead" id="isHead"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">isHead</span> (line <span class="line-number">329</span>)
+		<span class="method-title">isHead</span> (line <span class="line-number">377</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1108,10 +1193,10 @@
 			
 	</div>
 <a name="methodisPost" id="isPost"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">isPost</span> (line <span class="line-number">319</span>)
+		<span class="method-title">isPost</span> (line <span class="line-number">367</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1132,10 +1217,10 @@
 			
 	</div>
 <a name="methodisValid" id="isValid"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">isValid</span> (line <span class="line-number">299</span>)
+		<span class="method-title">isValid</span> (line <span class="line-number">347</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1156,10 +1241,10 @@
 			
 	</div>
 <a name="methodneedsTrailingSlash" id="needsTrailingSlash"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">needsTrailingSlash</span> (line <span class="line-number">251</span>)
+		<span class="method-title">needsTrailingSlash</span> (line <span class="line-number">299</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1189,10 +1274,10 @@
 			
 	</div>
 <a name="methodrefreshFileInfo" id="refreshFileInfo"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">refreshFileInfo</span> (line <span class="line-number">201</span>)
+		<span class="method-title">refreshFileInfo</span> (line <span class="line-number">234</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1214,10 +1299,10 @@
 			
 	</div>
 <a name="methodrewriteUrlPath" id="rewriteUrlPath"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">rewriteUrlPath</span> (line <span class="line-number">221</span>)
+		<span class="method-title">rewriteUrlPath</span> (line <span class="line-number">254</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1251,10 +1336,10 @@
 			
 	</div>
 <a name="methodsetClientInfo" id="setClientInfo"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setClientInfo</span> (line <span class="line-number">361</span>)
+		<span class="method-title">setClientInfo</span> (line <span class="line-number">409</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1284,10 +1369,10 @@
 			
 	</div>
 <a name="methodsetDocroot" id="setDocroot"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setDocroot</span> (line <span class="line-number">476</span>)
+		<span class="method-title">setDocroot</span> (line <span class="line-number">594</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1314,10 +1399,10 @@
 			
 	</div>
 <a name="methodsetFilename" id="setFilename"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setFilename</span> (line <span class="line-number">549</span>)
+		<span class="method-title">setFilename</span> (line <span class="line-number">646</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1344,10 +1429,10 @@
 			
 	</div>
 <a name="methodsetFilepath" id="setFilepath"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setFilepath</span> (line <span class="line-number">454</span>)
+		<span class="method-title">setFilepath</span> (line <span class="line-number">572</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1373,15 +1458,15 @@
 		
 			
 	</div>
-<a name="methodsetHandler" id="setHandler"><!-- --></a>
-<div class="evenrow">
+<a name="methodsetPathInfo" id="setPathInfo"><!-- --></a>
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setHandler</span> (line <span class="line-number">498</span>)
+		<span class="method-title">setPathInfo</span> (line <span class="line-number">684</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Sets the currently active request handler.</p>
+<p class="short-description">Overrides the calculated path information for the request.</p>
 	<ul class="tags">
 				<li><span class="field">return:</span> this instance</li>
 				<li><span class="field">access:</span> public</li>
@@ -1390,24 +1475,24 @@
 	<div class="method-signature">
 		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Request.html">MiniHTTPD_Request</a></span>
 		<span class="method-name">
-			setHandler
+			setPathInfo
 		</span>
-					(<span class="var-type"></span>&nbsp;<span class="var-name">$handler</span>)
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$pathinfo</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type">MiniHTTPD_Request_Handler</span>
-				<span class="var-name">$handler</span><span class="var-description">: the request handler</span>			</li>
+				<span class="var-type">array</span>
+				<span class="var-name">$pathinfo</span><span class="var-description">: the new path info</span>			</li>
 				</ul>
 		
 			
 	</div>
 <a name="methodsetPathTranslated" id="setPathTranslated"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setPathTranslated</span> (line <span class="line-number">563</span>)
+		<span class="method-title">setPathTranslated</span> (line <span class="line-number">660</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1434,13 +1519,43 @@
 		
 			
 	</div>
+<a name="methodsetRewriteInfo" id="setRewriteInfo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setRewriteInfo</span> (line <span class="line-number">284</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets any new request info created by a rewrite action.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this object</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Request.html">MiniHTTPD_Request</a></span>
+		<span class="method-name">
+			setRewriteInfo
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$info</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$info</span><span class="var-description">: the rewritten info</span>			</li>
+				</ul>
+		
+			
+	</div>
 						
 		</div>
 	</div>
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Sun, 06 Mar 2011 11:05:40 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Thu, 17 Mar 2011 01:54:03 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

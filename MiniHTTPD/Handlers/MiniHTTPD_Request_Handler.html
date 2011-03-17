@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class MiniHTTPD_Request_Handler</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class MiniHTTPD_Request_Handler</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The MiniHTTPD abstract request handler class from which all custom handlers  should be extended.</p>
+<p class="description"><p>The client object delegates responsibility to handlers for processing various  aspects of the current request. These may range from changing request details to  starting the client response. Handlers may act on both the client and request  objects, so can also serve as a bridge between the two.</p><p>Usually the handlers will be called in the order in which they have been listed  in the server's ini file. If the request is being reprocessed, various options  exist for excluding or skipping repeat calls to individual handlers. Handlers  may also be re-called on the fly via the methods of the handler queue object  used by the client.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> MiniHTTPD Team</li>
+				<li><span class="field">copyright:</span> (c) 2010 MiniHTTPD Team</li>
+				<li><span class="field">see:</span> MiniHTTPD_Handlers_Queue
+
+ To add a new handler, first extend this class and implement its abstract methods.
+ Then load the extended handler via the classes.php and default.ini files (or the
+ user versions, see the notes in each).</li>
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">usedby:</span> <a href="../../MiniHTTPD/MiniHTTPD_Server.html#methodstart">MiniHTTPD_Server::start()</a></li>
+				<li><span class="field">license:</span> BSD</li>
+				<li><span class="field">usedby:</span> <a href="../../MiniHTTPD/MiniHTTPD_Client.html#methodprocessRequest">MiniHTTPD_Client::processRequest()</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---minihttpd---classes---handlers---handler.php.html">/lib/minihttpd/classes/handlers/handler.php</a> (line <span class="field">29</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																																																<div class="var-title">
+					<span class="var-type">bool</span>
+					<a href="#$canSkip" title="details" class="var-name">$canSkip</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
+					<a href="#$client" title="details" class="var-name">$client</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$counts" title="details" class="var-name">$counts</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">bool</span>
+					<a href="#$debug" title="details" class="var-name">$debug</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$error" title="details" class="var-name">$error</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">bool</span>
+					<a href="#$isFinal" title="details" class="var-name">$isFinal</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">bool</span>
+					<a href="#$persist" title="details" class="var-name">$persist</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../../MiniHTTPD/MiniHTTPD_Request.html">MiniHTTPD_Request</a></span>
+					<a href="#$request" title="details" class="var-name">$request</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">bool</span>
+					<a href="#$returnValue" title="details" class="var-name">$returnValue</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">bool</span>
+					<a href="#$useOnce" title="details" class="var-name">$useOnce</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addCount" title="details" class="method-name">addCount</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#canSkip" title="details" class="method-name">canSkip</a>
+											([<span class="var-type">bool</span>&nbsp;<span class="var-name">$skip</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#execute" title="details" class="method-name">execute</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getCount" title="details" class="method-name">getCount</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getError" title="details" class="method-name">getError</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#getReturn" title="details" class="method-name">getReturn</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#hasError" title="details" class="method-name">hasError</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$client</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#isFinal" title="details" class="method-name">isFinal</a>
+											([<span class="var-type">bool</span>&nbsp;<span class="var-name">$final</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#matches" title="details" class="method-name">matches</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#persist" title="details" class="method-name">persist</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#reset" title="details" class="method-name">reset</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#skipped" title="details" class="method-name">skipped</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#useOnce" title="details" class="method-name">useOnce</a>
+											([<span class="var-type">bool</span>&nbsp;<span class="var-name">$once</span> = <span class="var-default">null</span>])
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$canSkip" id="$canSkip"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bool</span>
+			<span class="var-name">$canSkip</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number">47</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">If this handler matches but fails to execute, can it be skipped?</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$client" id="$client"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
+			<span class="var-name">$client</span>
+						(line <span class="line-number">71</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reference to the calling client object.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$counts" id="$counts"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$counts</span>
+			 = <span class="var-default">array(<br />		'init' =&gt; 0,<br />		'match' =&gt; 0,<br />		'success' =&gt; 0,<br />		'error' =&gt; 0,<br />	)</span>			(line <span class="line-number">89</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">A tally of calls to the handler and their outcomes.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$debug" id="$debug"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bool</span>
+			<span class="var-name">$debug</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number">35</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Should debugging output be enabled?</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$error" id="$error"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$error</span>
+						(line <span class="line-number">83</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Any error message following failure to execute the handler.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$isFinal" id="$isFinal"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bool</span>
+			<span class="var-name">$isFinal</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number">41</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Should no more handlers be processed if this one matches?</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$persist" id="$persist"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bool</span>
+			<span class="var-name">$persist</span>
+			 = <span class="var-default"> true</span>			(line <span class="line-number">59</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Can the request object be reused when re-processing?</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$request" id="$request"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../../MiniHTTPD/MiniHTTPD_Request.html">MiniHTTPD_Request</a></span>
+			<span class="var-name">$request</span>
+						(line <span class="line-number">77</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reference to the active request object for the client.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$returnValue" id="$returnValue"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bool</span>
+			<span class="var-name">$returnValue</span>
+			 = <span class="var-default"> true</span>			(line <span class="line-number">65</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The value to return to the main server loop following execution.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$useOnce" id="$useOnce"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bool</span>
+			<span class="var-name">$useOnce</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number">53</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Should the handler not be used when re-processing the request?</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodaddCount" id="addCount"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addCount</span> (line <span class="line-number">188</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Increments a count in the current tally.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addCount
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: the count to increment</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcanSkip" id="canSkip"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">canSkip</span> (line <span class="line-number">157</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the handler can be skipped if execution fails and returns  errors or toggles the current setting if a value is passed.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if errors can be skipped</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			canSkip
+		</span>
+					([<span class="var-type">bool</span>&nbsp;<span class="var-name">$skip</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$skip</span><span class="var-description">: whether errors can be skipped</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodexecute" id="execute"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">execute</span> (line <span class="line-number">288</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This method performs the main actions of the handler on the client and  request objects if it matches the request.</p>
+<p class="description"><p>Handlers may have various responsibilities, but typically if the handler is  final this method should start the appropriate response on the client, or  send any error or redirect responses and report errors back to the main server  loop via $returnValue. If any details of the request are to be changed, the  request object should be updated accordingly.</p><p>This method may also require that the handler queue should be re-processed  from the top following execution (e.g. see the directory handler).</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if execution was successful</li>
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			execute
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetCount" id="getCount"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCount</span> (line <span class="line-number">201</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a count from the current stored tally.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the stored count value</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getCount
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: the count type</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetError" id="getError"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getError</span> (line <span class="line-number">221</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns any error message stored following execution.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the error message</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getError
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetReturn" id="getReturn"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getReturn</span> (line <span class="line-number">243</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the value to be returned to the main server loop following execution.</p>
+<p class="description"><p>usually this will be set to false if there any errors.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the value to return to the main server loop</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			getReturn
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasError" id="hasError"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasError</span> (line <span class="line-number">211</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether any error message has been set following execution.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if an error message is stored</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasError
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">init</span> (line <span class="line-number">103</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the handler by resetting to default values and adding  references to the calling client and request objects.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$client</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
+				<span class="var-name">$client</span><span class="var-description">: the calling client object</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisFinal" id="isFinal"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isFinal</span> (line <span class="line-number">141</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether no more handlers should be called after this one, or  toggles the current setting if a value is passed.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if this handler is final</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			isFinal
+		</span>
+					([<span class="var-type">bool</span>&nbsp;<span class="var-name">$final</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$final</span><span class="var-description">: whether this should be the last called handler</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodmatches" id="matches"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">matches</span> (line <span class="line-number">271</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the handler matches the current request.</p>
+<p class="description"><p>Typically this method will also store any parsed request values for use in  the execute method if the handler matches.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the handler matches the request</li>
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			matches
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodpersist" id="persist"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">persist</span> (line <span class="line-number">258</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns whether this handler will allow the calling client to reuse the  current request object when re-processing, or instead force a new request  object to be created.</p>
+<p class="description"><p>This is useful when requiring authorization for a request and the headers  need to be re-parsed, for example.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the client can reuse the request object</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			persist
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodreset" id="reset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">reset</span> (line <span class="line-number">127</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Resets the handler to its starting values.</p>
+<p class="description"><p>This method is called automatically whenever the handler is initialized.  An extended class that overrides this method will usually want to call  parent::reset() as its first action.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			reset
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodskipped" id="skipped"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">skipped</span> (line <span class="line-number">232</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the handler has been skipped following any errors during  its execution.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the handler has been skipped</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			skipped
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methoduseOnce" id="useOnce"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">useOnce</span> (line <span class="line-number">173</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the handler should not be used when re-processing the  request, or toggles the current setting if a value is passed.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the handler can only be called once</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			useOnce
+		</span>
+					([<span class="var-type">bool</span>&nbsp;<span class="var-name">$once</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$once</span><span class="var-description">: whether the handler should be skipped when re-processing</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 17 Mar 2011 01:53:59 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
