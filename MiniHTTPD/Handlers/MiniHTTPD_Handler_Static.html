@@ -83,7 +83,7 @@
 				<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#execute" title="details" class="method-name">execute</a>
-										()
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$new</span> = <span class="var-default">true</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$nocache</span> = <span class="var-default">false</span>])
 									</div>
 														
 				<div class="method-definition">
@@ -101,7 +101,7 @@
 				<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#startStatic" title="details" class="method-name">startStatic</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$ext</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$new</span> = <span class="var-default">true</span>])
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$ext</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$new</span> = <span class="var-default">true</span>])
 									</div>
 											</div>
 		</div>
@@ -195,9 +195,17 @@
 		<span class="method-name">
 			execute
 		</span>
-				()
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$new</span> = <span class="var-default">true</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$nocache</span> = <span class="var-default">false</span>])
 			</div>
 	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$new</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$nocache</span>			</li>
+				</ul>
 		
 			
 	</div>
@@ -251,13 +259,13 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">startStatic</span> (line <span class="line-number">84</span>)
+		<span class="method-title">startStatic</span> (line <span class="line-number">85</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Initializes the response object for static requests.</p>
 	<ul class="tags">
-				<li><span class="field">access:</span> public</li>
+				<li><span class="field">access:</span> protected</li>
 			</ul>
 	
 	<div class="method-signature">
@@ -265,7 +273,7 @@
 		<span class="method-name">
 			startStatic
 		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$ext</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$new</span> = <span class="var-default">true</span>])
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$ext</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$new</span> = <span class="var-default">true</span>])
 			</div>
 	
 			<ul class="parameters">
@@ -276,8 +284,8 @@
 				<span class="var-type">string</span>
 				<span class="var-name">$ext</span><span class="var-description">: extension of the requested file</span>			</li>
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$new</span>			</li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$new</span><span class="var-description">: create a new response object?</span>			</li>
 				</ul>
 		
 			
@@ -288,7 +296,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 17 Mar 2011 01:54:01 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Thu, 24 Mar 2011 03:20:34 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

@@ -150,7 +150,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																																																																																																																																																																														
+																																																																																																																																																																																																																																																																																																																																						
 				<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
@@ -161,6 +161,12 @@
 											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
 										<a href="#addFCGIClient" title="details" class="method-name">addFCGIClient</a>
 											(<span class="var-type"><a href="../MiniHTTPD/MiniFCGI/MiniFCGI_Client.html">MiniFCGI_Client</a></span>&nbsp;<span class="var-name">$fcgi</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
+										<a href="#clearResponse" title="details" class="method-name">clearResponse</a>
+										()
 									</div>
 														
 				<div class="method-definition">
@@ -218,6 +224,12 @@
 									</div>
 														
 				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getSummary" title="details" class="method-name">getSummary</a>
+										()
+									</div>
+														
+				<div class="method-definition">
 											<span class="method-result">bool</span>
 										<a href="#hasFCGI" title="details" class="method-name">hasFCGI</a>
 										()
@@ -244,6 +256,12 @@
 				<div class="method-definition">
 											<span class="method-result">bool</span>
 										<a href="#hasResponse" title="details" class="method-name">hasResponse</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#hasResponseContent" title="details" class="method-name">hasResponseContent</a>
 										()
 									</div>
 														
@@ -310,7 +328,7 @@
 				<div class="method-definition">
 											<span class="method-result">bool</span>
 										<a href="#sendFileX" title="details" class="method-name">sendFileX</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>)
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sendfile</span>)
 									</div>
 														
 				<div class="method-definition">
@@ -879,7 +897,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">addFCGIClient</span> (line <span class="line-number">703</span>)
+		<span class="method-title">addFCGIClient</span> (line <span class="line-number">757</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -905,11 +923,36 @@
 		
 			
 	</div>
-<a name="methodfinish" id="finish"><!-- --></a>
+<a name="methodclearResponse" id="clearResponse"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">finish</span> (line <span class="line-number">463</span>)
+		<span class="method-title">clearResponse</span> (line <span class="line-number">712</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Nulls the current response object.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> this instance</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
+		<span class="method-name">
+			clearResponse
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodfinish" id="finish"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">finish</span> (line <span class="line-number">474</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -931,10 +974,10 @@
 			
 	</div>
 <a name="methodgetFCGIClientID" id="getFCGIClientID"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFCGIClientID</span> (line <span class="line-number">724</span>)
+		<span class="method-title">getFCGIClientID</span> (line <span class="line-number">778</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -956,10 +999,10 @@
 			
 	</div>
 <a name="methodgetFCGIProcess" id="getFCGIProcess"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFCGIProcess</span> (line <span class="line-number">760</span>)
+		<span class="method-title">getFCGIProcess</span> (line <span class="line-number">811</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -981,10 +1024,10 @@
 			
 	</div>
 <a name="methodgetFCGISocket" id="getFCGISocket"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFCGISocket</span> (line <span class="line-number">737</span>)
+		<span class="method-title">getFCGISocket</span> (line <span class="line-number">791</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1006,10 +1049,10 @@
 			
 	</div>
 <a name="methodgetID" id="getID"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getID</span> (line <span class="line-number">508</span>)
+		<span class="method-title">getID</span> (line <span class="line-number">541</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1030,10 +1073,10 @@
 			
 	</div>
 <a name="methodgetRequest" id="getRequest"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getRequest</span> (line <span class="line-number">649</span>)
+		<span class="method-title">getRequest</span> (line <span class="line-number">692</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1054,10 +1097,10 @@
 			
 	</div>
 <a name="methodgetResponse" id="getResponse"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getResponse</span> (line <span class="line-number">659</span>)
+		<span class="method-title">getResponse</span> (line <span class="line-number">702</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1078,10 +1121,10 @@
 			
 	</div>
 <a name="methodgetSocket" id="getSocket"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getSocket</span> (line <span class="line-number">558</span>)
+		<span class="method-title">getSocket</span> (line <span class="line-number">601</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1103,10 +1146,10 @@
 			
 	</div>
 <a name="methodgetStream" id="getStream"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getStream</span> (line <span class="line-number">607</span>)
+		<span class="method-title">getStream</span> (line <span class="line-number">650</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1127,11 +1170,36 @@
 		
 			
 	</div>
+<a name="methodgetSummary" id="getSummary"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSummary</span> (line <span class="line-number">525</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a formatted summary of the current client information.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the summary info</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getSummary
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
 <a name="methodhasFCGI" id="hasFCGI"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasFCGI</span> (line <span class="line-number">714</span>)
+		<span class="method-title">hasFCGI</span> (line <span class="line-number">768</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1155,7 +1223,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasOpenFCGI</span> (line <span class="line-number">750</span>)
+		<span class="method-title">hasOpenFCGI</span> (line <span class="line-number">801</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1180,7 +1248,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasOpenStream</span> (line <span class="line-number">618</span>)
+		<span class="method-title">hasOpenStream</span> (line <span class="line-number">661</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1205,7 +1273,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasRequest</span> (line <span class="line-number">538</span>)
+		<span class="method-title">hasRequest</span> (line <span class="line-number">571</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1229,7 +1297,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasResponse</span> (line <span class="line-number">548</span>)
+		<span class="method-title">hasResponse</span> (line <span class="line-number">581</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1249,11 +1317,35 @@
 		
 			
 	</div>
-<a name="methodisChunking" id="isChunking"><!-- --></a>
+<a name="methodhasResponseContent" id="hasResponseContent"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">isChunking</span> (line <span class="line-number">690</span>)
+		<span class="method-title">hasResponseContent</span> (line <span class="line-number">591</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the client has any waiting content to send.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasResponseContent
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisChunking" id="isChunking"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isChunking</span> (line <span class="line-number">744</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1275,10 +1367,10 @@
 			
 	</div>
 <a name="methodisFinished" id="isFinished"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">isFinished</span> (line <span class="line-number">518</span>)
+		<span class="method-title">isFinished</span> (line <span class="line-number">551</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1299,10 +1391,10 @@
 			
 	</div>
 <a name="methodisReady" id="isReady"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">isReady</span> (line <span class="line-number">528</span>)
+		<span class="method-title">isReady</span> (line <span class="line-number">561</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1323,10 +1415,10 @@
 			
 	</div>
 <a name="methodisReprocessing" id="isReprocessing"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">isReprocessing</span> (line <span class="line-number">669</span>)
+		<span class="method-title">isReprocessing</span> (line <span class="line-number">723</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1347,10 +1439,10 @@
 			
 	</div>
 <a name="methodisStreaming" id="isStreaming"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">isStreaming</span> (line <span class="line-number">680</span>)
+		<span class="method-title">isStreaming</span> (line <span class="line-number">734</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1372,10 +1464,10 @@
 			
 	</div>
 <a name="methodneedsAuthorization" id="needsAuthorization"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">needsAuthorization</span> (line <span class="line-number">628</span>)
+		<span class="method-title">needsAuthorization</span> (line <span class="line-number">671</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1396,7 +1488,7 @@
 			
 	</div>
 <a name="methodprocessRequest" id="processRequest"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">processRequest</span> (line <span class="line-number">173</span>)
@@ -1425,10 +1517,10 @@
 			
 	</div>
 <a name="methodreadFCGIResponse" id="readFCGIResponse"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">readFCGIResponse</span> (line <span class="line-number">784</span>)
+		<span class="method-title">readFCGIResponse</span> (line <span class="line-number">835</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1452,10 +1544,10 @@
 			
 	</div>
 <a name="methodreauthorize" id="reauthorize"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">reauthorize</span> (line <span class="line-number">639</span>)
+		<span class="method-title">reauthorize</span> (line <span class="line-number">682</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1481,10 +1573,10 @@
 			
 	</div>
 <a name="methodsendError" id="sendError"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">sendError</span> (line <span class="line-number">844</span>)
+		<span class="method-title">sendError</span> (line <span class="line-number">895</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1520,15 +1612,15 @@
 			
 	</div>
 <a name="methodsendFileX" id="sendFileX"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">sendFileX</span> (line <span class="line-number">919</span>)
+		<span class="method-title">sendFileX</span> (line <span class="line-number">975</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Implements X-SendFile requests from FCGI processes.</p>
-<p class="description"><p>If the FCGI returns an X-SendFile header containing a valid filename within  the configured docroot, the server will send the static file directly. This  is especially useful for large file transfers. The FCGI script should also  usually set the Content-Disposition and Content-Type headers for sending files  as attachments, otherwise the file contents will be displayed in the browser.</p></p>
+<p class="description"><p>If the FCGI returns an X-SendFile header containing a valid filename within  the configured docroot, the server will send the static file directly. This  is especially useful for large file transfers. The FCGI script should also  usually set the Content-Disposition and Content-Type headers for sending files  as attachments, otherwise the file contents will be displayed in the browser.</p><p>Examples of valid X-SendFile headers:</p><p>x-SendFile: &quot;full_file_path&quot;            &lt;- will use cache info  x-SendFile: &quot;full_file_path&quot;; nocache   &lt;- will ignore cache info</p></p>
 	<ul class="tags">
 				<li><span class="field">return:</span> true if the file was sent successfully</li>
 				<li><span class="field">access:</span> protected</li>
@@ -1539,22 +1631,22 @@
 		<span class="method-name">
 			sendFileX
 		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$file</span>)
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sendfile</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
 				<span class="var-type">string</span>
-				<span class="var-name">$file</span><span class="var-description">: full path of the filename to send</span>			</li>
+				<span class="var-name">$sendfile</span><span class="var-description">: the X-SendFile header value</span>			</li>
 				</ul>
 		
 			
 	</div>
 <a name="methodsendNotModified" id="sendNotModified"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">sendNotModified</span> (line <span class="line-number">875</span>)
+		<span class="method-title">sendNotModified</span> (line <span class="line-number">926</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1575,10 +1667,10 @@
 			
 	</div>
 <a name="methodsendRedirect" id="sendRedirect"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">sendRedirect</span> (line <span class="line-number">890</span>)
+		<span class="method-title">sendRedirect</span> (line <span class="line-number">941</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1607,10 +1699,10 @@
 			
 	</div>
 <a name="methodsendResponse" id="sendResponse"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">sendResponse</span> (line <span class="line-number">379</span>)
+		<span class="method-title">sendResponse</span> (line <span class="line-number">384</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1638,10 +1730,10 @@
 			
 	</div>
 <a name="methodsetInput" id="setInput"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setInput</span> (line <span class="line-number">596</span>)
+		<span class="method-title">setInput</span> (line <span class="line-number">639</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1668,10 +1760,10 @@
 			
 	</div>
 <a name="methodsetSocket" id="setSocket"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setSocket</span> (line <span class="line-number">569</span>)
+		<span class="method-title">setSocket</span> (line <span class="line-number">612</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1698,10 +1790,10 @@
 			
 	</div>
 <a name="methodsetTimeout" id="setTimeout"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setTimeout</span> (line <span class="line-number">584</span>)
+		<span class="method-title">setTimeout</span> (line <span class="line-number">627</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1728,7 +1820,7 @@
 			
 	</div>
 <a name="methodstartRequest" id="startRequest"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">startRequest</span> (line <span class="line-number">279</span>)
@@ -1753,10 +1845,10 @@
 			
 	</div>
 <a name="methodstartResponse" id="startResponse"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">startResponse</span> (line <span class="line-number">330</span>)
+		<span class="method-title">startResponse</span> (line <span class="line-number">335</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1786,10 +1878,10 @@
 			
 	</div>
 <a name="methodwriteLog" id="writeLog"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">writeLog</span> (line <span class="line-number">494</span>)
+		<span class="method-title">writeLog</span> (line <span class="line-number">511</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1816,7 +1908,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 17 Mar 2011 01:53:56 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Thu, 24 Mar 2011 03:20:29 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

@@ -236,7 +236,7 @@
 		<span class="var-title">
 			<span class="var-type">mixed</span>
 			<span class="var-name">$rules_default</span>
-			 = <span class="var-default">array<br />	(<br />		'default' =&gt; array(<br />			'match'    =&gt; '^(.*)$',					// matches every URL in whole<br />			'replace'  =&gt; '/page.php/$1',		// appends whole URL to page.php<br />			'isFile'   =&gt; false,						// ignores all existing files<br />			'isDir'    =&gt; false,						// ignores all existing directories<br />			'last'     =&gt; true,							// no further rules will be applied<br />			'redirect' =&gt; false,						// won't send any redirect info<br />		),)</span>			(line <span class="line-number">31</span>)
+			 = <span class="var-default">array<br />	(<br />		'default' =&gt; array(<br />			'match'    =&gt; '^(.*)$',					// matches every URL in whole<br />			'replace'  =&gt; '/page.php/$1',		// appends whole URL to page.php<br />			'isFile'   =&gt; false,						// ignores all existing files<br />			'isDir'    =&gt; false,						// ignores all existing directories<br />			'strict'   =&gt; true, 						// checks for filename extensions<br />			'last'     =&gt; true,							// no further rules will be applied<br />			'redirect' =&gt; false,						// won't send any redirect info<br />		),)</span>			(line <span class="line-number">31</span>)
 		</span>
 	</div>
 
@@ -361,7 +361,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">matches</span> (line <span class="line-number">43</span>)
+		<span class="method-title">matches</span> (line <span class="line-number">44</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -409,7 +409,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 17 Mar 2011 01:54:01 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Thu, 24 Mar 2011 03:20:34 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

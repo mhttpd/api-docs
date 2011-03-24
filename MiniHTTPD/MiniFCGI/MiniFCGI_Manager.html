@@ -25,15 +25,14 @@
 	<div class="info-box-body">
         		<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">The MiniFCGI manager class.</p>
-<p class="description"><p>This static class is responsible for managing the FastCGI process pool. It  connects clients to available processes, spawns new ones if needed, monitors  activity on each of the processes and maintains a scoreboard for the pool.</p></p>
+<p class="description"><p>This static class is responsible for managing the FastCGI process pool. It  connects clients to available processes, spawns new ones if needed, monitors  activity on each of the processes, culls any idle processes after a given time  and maintains a scoreboard for the pool.</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> MiniHTTPD Team</li>
 				<li><span class="field">copyright:</span> (c) 2010 MiniHTTPD Team</li>
-				<li><span class="field">todo:</span> Add better dynamic management of the process pool, particularly for  culling idle or zombie processes.</li>
 				<li><span class="field">license:</span> BSD</li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_lib---minihttpd---classes---minifcgi---manager.php.html">/lib/minihttpd/classes/minifcgi/manager.php</a> (line <span class="field">18</span>)
+			Located in <a class="field" href="_lib---minihttpd---classes---minifcgi---manager.php.html">/lib/minihttpd/classes/minifcgi/manager.php</a> (line <span class="field">16</span>)
 		</p>
 		
 				
@@ -241,6 +240,12 @@
 									</div>
 														
 				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#cullProcesses" title="details" class="method-name">cullProcesses</a>
+										()
+									</div>
+														
+				<div class="method-definition">
 					static 						<span class="method-result">integer|bool</span>
 										<a href="#getPID" title="details" class="method-name">getPID</a>
 											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$ID</span>)
@@ -251,7 +256,7 @@
 										<a href="#getScoreboard" title="details" class="method-name">getScoreboard</a>
 											([<span class="var-type">bool</span>&nbsp;<span class="var-name">$asString</span> = <span class="var-default">false</span>])
 									</div>
-														
+																						
 				<div class="method-definition">
 					static 						<span class="method-result">bool</span>
 										<a href="#processExists" title="details" class="method-name">processExists</a>
@@ -275,13 +280,13 @@
 										<a href="#verifyProcesses" title="details" class="method-name">verifyProcesses</a>
 										()
 									</div>
-																																																																																																		
+																																																																		
 				<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
 										()
 									</div>
-											</div>
+																																											</div>
 		</div>
 	</div>		
 
@@ -307,7 +312,7 @@
 		<span class="var-title">
 			static <span class="var-type">array</span>
 			<span class="var-name">$config</span>
-						(line <span class="line-number">92</span>)
+						(line <span class="line-number">90</span>)
 		</span>
 	</div>
 
@@ -329,7 +334,7 @@
 		<span class="var-title">
 			static <span class="var-type">bool</span>
 			<span class="var-name">$debug</span>
-			 = <span class="var-default"> false</span>			(line <span class="line-number">78</span>)
+			 = <span class="var-default"> false</span>			(line <span class="line-number">76</span>)
 		</span>
 	</div>
 
@@ -351,7 +356,7 @@
 		<span class="var-title">
 			static <span class="var-type">array</span>
 			<span class="var-name">$pool</span>
-						(line <span class="line-number">86</span>)
+						(line <span class="line-number">84</span>)
 		</span>
 	</div>
 
@@ -390,7 +395,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static addRequest</span> (line <span class="line-number">319</span>)
+		<span class="method-title">static addRequest</span> (line <span class="line-number">322</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -420,7 +425,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static connect</span> (line <span class="line-number">162</span>)
+		<span class="method-title">static connect</span> (line <span class="line-number">158</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -454,7 +459,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static createProcess</span> (line <span class="line-number">389</span>)
+		<span class="method-title">static createProcess</span> (line <span class="line-number">393</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -488,11 +493,36 @@
 		
 			
 	</div>
-<a name="methodgetPID" id="getPID"><!-- --></a>
+<a name="methodcullProcesses" id="cullProcesses"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getPID</span> (line <span class="line-number">339</span>)
+		<span class="method-title">static cullProcesses</span> (line <span class="line-number">503</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Kills any idle processes and removes them from the pool.</p>
+<p class="description"><p>This method checks the age of each process in the pool (in reverse order)  and kills any idle ones that are older than the configured cull_time_limit  if there are more in the pool than the configured min_processes number.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			cullProcesses
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetPID" id="getPID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getPID</span> (line <span class="line-number">342</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -522,10 +552,10 @@
 			
 	</div>
 <a name="methodgetScoreboard" id="getScoreboard"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getScoreboard</span> (line <span class="line-number">293</span>)
+		<span class="method-title">static getScoreboard</span> (line <span class="line-number">294</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -552,10 +582,10 @@
 			
 	</div>
 <a name="methodprocessExists" id="processExists"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static processExists</span> (line <span class="line-number">444</span>)
+		<span class="method-title">static processExists</span> (line <span class="line-number">451</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -585,10 +615,10 @@
 			
 	</div>
 <a name="methodremoveClient" id="removeClient"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static removeClient</span> (line <span class="line-number">273</span>)
+		<span class="method-title">static removeClient</span> (line <span class="line-number">274</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -609,16 +639,16 @@
 			<ul class="parameters">
 					<li>
 				<span class="var-type">integer</span>
-				<span class="var-name">$ID</span><span class="var-description">: the stored client ID number</span>			</li>
+				<span class="var-name">$ID</span><span class="var-description">: the stored process ID number</span>			</li>
 				</ul>
 		
 			
 	</div>
 <a name="methodspawn" id="spawn"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static spawn</span> (line <span class="line-number">110</span>)
+		<span class="method-title">static spawn</span> (line <span class="line-number">106</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -626,7 +656,6 @@
 <p class="description"><p>At startup, this method will spawn the minimum number of processes given  in the configurations settings. After startup, ID numbers should be passed by  clients when requesting a new process. Using this method ensures that the  maximum number of processes given in the configuration is never exceeded.</p></p>
 	<ul class="tags">
 				<li><span class="field">return:</span> true if a new process was spawned</li>
-				<li><span class="field">todo:</span> Add a proper system for killing idle processes dynamically.</li>
 				<li><span class="field">access:</span> public</li>
 				<li><span class="field">usedby:</span> <a href="../../MiniHTTPD/MiniHTTPD_Server.html#methodstart">MiniHTTPD_Server::start()</a></li>
 				<li><span class="field">uses:</span> <a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Manager.html#methodcreateProcess">MiniFCGI_Manager::createProcess()</a></li>
@@ -652,14 +681,14 @@
 			
 	</div>
 <a name="methodverifyProcesses" id="verifyProcesses"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static verifyProcesses</span> (line <span class="line-number">477</span>)
+		<span class="method-title">static verifyProcesses</span> (line <span class="line-number">484</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Checks all of the processes in the pool and culls any that that seem to have  died or are not responding as expected.</p>
+<p class="short-description">Checks all of the processes in the pool and removes any that that seem to  have died or are not responding as expected.</p>
 	<ul class="tags">
 				<li><span class="field">see:</span> <a href="../../MiniHTTPD/MiniFCGI/MiniFCGI_Manager.html#methodprocessExists">MiniFCGI_Manager::processExists()</a></li>
 				<li><span class="field">todo:</span> This needs a much more robust approach.</li>
@@ -678,10 +707,10 @@
 			
 	</div>
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">492</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">541</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -720,14 +749,14 @@
 					</div>
 		<div class="info-box-body">
 			<a name="constABORT_REQUEST" id="ABORT_REQUEST"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">ABORT_REQUEST</span>
 			 = <span class="const-default"> 2</span>
-			(line <span class="line-number">39</span>)
+			(line <span class="line-number">37</span>)
 		</span>
 	</div>
 
@@ -737,14 +766,14 @@
 	
 </div>
 <a name="constAUTHORIZER" id="AUTHORIZER"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">AUTHORIZER</span>
 			 = <span class="const-default"> 2</span>
-			(line <span class="line-number">28</span>)
+			(line <span class="line-number">26</span>)
 		</span>
 	</div>
 
@@ -754,14 +783,14 @@
 	
 </div>
 <a name="constBEGIN_REQUEST" id="BEGIN_REQUEST"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">BEGIN_REQUEST</span>
 			 = <span class="const-default"> 1</span>
-			(line <span class="line-number">38</span>)
+			(line <span class="line-number">36</span>)
 		</span>
 	</div>
 
@@ -771,14 +800,14 @@
 	
 </div>
 <a name="constCANT_MPX_CONN" id="CANT_MPX_CONN"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">CANT_MPX_CONN</span>
 			 = <span class="const-default"> 1</span>
-			(line <span class="line-number">55</span>)
+			(line <span class="line-number">53</span>)
 		</span>
 	</div>
 
@@ -788,268 +817,13 @@
 	
 </div>
 <a name="constDATA" id="DATA"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">DATA</span>
 			 = <span class="const-default"> 8</span>
-			(line <span class="line-number">45</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">FastCGI/1.0 Protocol Constants</p>
-	
-	
-</div>
-<a name="constEND_REQUEST" id="END_REQUEST"><!-- --></A>
-<div class="oddrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">END_REQUEST</span>
-			 = <span class="const-default"> 3</span>
-			(line <span class="line-number">40</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">FastCGI/1.0 Protocol Constants</p>
-	
-	
-</div>
-<a name="constFILTER" id="FILTER"><!-- --></A>
-<div class="evenrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">FILTER</span>
-			 = <span class="const-default"> 3</span>
-			(line <span class="line-number">29</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">FastCGI/1.0 Protocol Constants</p>
-	
-	
-</div>
-<a name="constGET_VALUES" id="GET_VALUES"><!-- --></A>
-<div class="oddrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">GET_VALUES</span>
-			 = <span class="const-default"> 9</span>
-			(line <span class="line-number">46</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">FastCGI/1.0 Protocol Constants</p>
-	
-	
-</div>
-<a name="constGET_VALUES_RESULT" id="GET_VALUES_RESULT"><!-- --></A>
-<div class="evenrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">GET_VALUES_RESULT</span>
-			 = <span class="const-default"> 10</span>
-			(line <span class="line-number">47</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">FastCGI/1.0 Protocol Constants</p>
-	
-	
-</div>
-<a name="constKEEP_CONN" id="KEEP_CONN"><!-- --></A>
-<div class="oddrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">KEEP_CONN</span>
-			 = <span class="const-default"> 1</span>
-			(line <span class="line-number">32</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">FastCGI/1.0 Protocol Constants</p>
-	
-	
-</div>
-<a name="constMAX_LENGTH" id="MAX_LENGTH"><!-- --></A>
-<div class="evenrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">MAX_LENGTH</span>
-			 = <span class="const-default"> 65536</span>
-			(line <span class="line-number">64</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Maximum length in bytes of FCGI records.</p>
-	
-	
-</div>
-<a name="constNO_FLAGS" id="NO_FLAGS"><!-- --></A>
-<div class="oddrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">NO_FLAGS</span>
-			 = <span class="const-default"> 0</span>
-			(line <span class="line-number">69</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Nulls BEGIN_REQUEST flags</p>
-	
-	
-</div>
-<a name="constNULL_REQUEST_ID" id="NULL_REQUEST_ID"><!-- --></A>
-<div class="evenrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">NULL_REQUEST_ID</span>
-			 = <span class="const-default"> 0</span>
-			(line <span class="line-number">51</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">FastCGI/1.0 Protocol Constants</p>
-	
-	
-</div>
-<a name="constOVERLOADED" id="OVERLOADED"><!-- --></A>
-<div class="oddrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">OVERLOADED</span>
-			 = <span class="const-default"> 2</span>
-			(line <span class="line-number">56</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">FastCGI/1.0 Protocol Constants</p>
-	
-	
-</div>
-<a name="constPARAMS" id="PARAMS"><!-- --></A>
-<div class="evenrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">PARAMS</span>
-			 = <span class="const-default"> 4</span>
-			(line <span class="line-number">41</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">FastCGI/1.0 Protocol Constants</p>
-	
-	
-</div>
-<a name="constREQUEST_COMPLETE" id="REQUEST_COMPLETE"><!-- --></A>
-<div class="oddrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">REQUEST_COMPLETE</span>
-			 = <span class="const-default"> 0</span>
-			(line <span class="line-number">54</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">FastCGI/1.0 Protocol Constants</p>
-	
-	
-</div>
-<a name="constRESPONDER" id="RESPONDER"><!-- --></A>
-<div class="evenrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">RESPONDER</span>
-			 = <span class="const-default">  1</span>
-			(line <span class="line-number">27</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">FastCGI/1.0 Protocol Constants</p>
-	
-	
-</div>
-<a name="constSTDERR" id="STDERR"><!-- --></A>
-<div class="oddrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">STDERR</span>
-			 = <span class="const-default"> 7</span>
-			(line <span class="line-number">44</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">FastCGI/1.0 Protocol Constants</p>
-	
-	
-</div>
-<a name="constSTDIN" id="STDIN"><!-- --></A>
-<div class="evenrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">STDIN</span>
-			 = <span class="const-default"> 5</span>
-			(line <span class="line-number">42</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">FastCGI/1.0 Protocol Constants</p>
-	
-	
-</div>
-<a name="constSTDOUT" id="STDOUT"><!-- --></A>
-<div class="oddrow">
-
-	<div class="const-header">
-		<img src="../../media/images/Variable.png" />
-		<span class="const-title">
-			<span class="const-name">STDOUT</span>
-			 = <span class="const-default"> 6</span>
 			(line <span class="line-number">43</span>)
 		</span>
 	</div>
@@ -1059,15 +833,270 @@
 	
 	
 </div>
-<a name="constUNKNOWN_ROLE" id="UNKNOWN_ROLE"><!-- --></A>
+<a name="constEND_REQUEST" id="END_REQUEST"><!-- --></A>
 <div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">END_REQUEST</span>
+			 = <span class="const-default"> 3</span>
+			(line <span class="line-number">38</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constFILTER" id="FILTER"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">FILTER</span>
+			 = <span class="const-default"> 3</span>
+			(line <span class="line-number">27</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constGET_VALUES" id="GET_VALUES"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">GET_VALUES</span>
+			 = <span class="const-default"> 9</span>
+			(line <span class="line-number">44</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constGET_VALUES_RESULT" id="GET_VALUES_RESULT"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">GET_VALUES_RESULT</span>
+			 = <span class="const-default"> 10</span>
+			(line <span class="line-number">45</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constKEEP_CONN" id="KEEP_CONN"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">KEEP_CONN</span>
+			 = <span class="const-default"> 1</span>
+			(line <span class="line-number">30</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constMAX_LENGTH" id="MAX_LENGTH"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">MAX_LENGTH</span>
+			 = <span class="const-default"> 65536</span>
+			(line <span class="line-number">62</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Maximum length in bytes of FCGI records.</p>
+	
+	
+</div>
+<a name="constNO_FLAGS" id="NO_FLAGS"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">NO_FLAGS</span>
+			 = <span class="const-default"> 0</span>
+			(line <span class="line-number">67</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Nulls BEGIN_REQUEST flags</p>
+	
+	
+</div>
+<a name="constNULL_REQUEST_ID" id="NULL_REQUEST_ID"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">NULL_REQUEST_ID</span>
+			 = <span class="const-default"> 0</span>
+			(line <span class="line-number">49</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constOVERLOADED" id="OVERLOADED"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">OVERLOADED</span>
+			 = <span class="const-default"> 2</span>
+			(line <span class="line-number">54</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constPARAMS" id="PARAMS"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">PARAMS</span>
+			 = <span class="const-default"> 4</span>
+			(line <span class="line-number">39</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constREQUEST_COMPLETE" id="REQUEST_COMPLETE"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">REQUEST_COMPLETE</span>
+			 = <span class="const-default"> 0</span>
+			(line <span class="line-number">52</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constRESPONDER" id="RESPONDER"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">RESPONDER</span>
+			 = <span class="const-default">  1</span>
+			(line <span class="line-number">25</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constSTDERR" id="STDERR"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">STDERR</span>
+			 = <span class="const-default"> 7</span>
+			(line <span class="line-number">42</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constSTDIN" id="STDIN"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">STDIN</span>
+			 = <span class="const-default"> 5</span>
+			(line <span class="line-number">40</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constSTDOUT" id="STDOUT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">STDOUT</span>
+			 = <span class="const-default"> 6</span>
+			(line <span class="line-number">41</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">FastCGI/1.0 Protocol Constants</p>
+	
+	
+</div>
+<a name="constUNKNOWN_ROLE" id="UNKNOWN_ROLE"><!-- --></A>
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">UNKNOWN_ROLE</span>
 			 = <span class="const-default"> 3</span>
-			(line <span class="line-number">57</span>)
+			(line <span class="line-number">55</span>)
 		</span>
 	</div>
 
@@ -1077,14 +1106,14 @@
 	
 </div>
 <a name="constUNKNOWN_TYPE" id="UNKNOWN_TYPE"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">UNKNOWN_TYPE</span>
 			 = <span class="const-default"> 11</span>
-			(line <span class="line-number">48</span>)
+			(line <span class="line-number">46</span>)
 		</span>
 	</div>
 
@@ -1094,14 +1123,14 @@
 	
 </div>
 <a name="constVERSION_1" id="VERSION_1"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">VERSION_1</span>
 			 = <span class="const-default"> 1</span>
-			(line <span class="line-number">35</span>)
+			(line <span class="line-number">33</span>)
 		</span>
 	</div>
 
@@ -1115,7 +1144,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 17 Mar 2011 01:54:02 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Thu, 24 Mar 2011 03:20:34 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
