@@ -28,7 +28,7 @@
 <p class="description"><p>This static class deals with the most basic level of the server's operation.  It initializes the main environment, sets up the listening socket, handles  all client connections, and monitors any FastCGI connections for processing  by the created client objects. It also includes a number of useful helper  methods, e.g. an object factory, access to the configuration settings, etc.</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> MiniHTTPD Team</li>
-				<li><span class="field">copyright:</span> (c) 2010 MiniHTTPD Team</li>
+				<li><span class="field">copyright:</span> (c) 2010-2012 MiniHTTPD Team</li>
 				<li><span class="field">license:</span> BSD</li>
 			</ul>
 		<p class="notes">
@@ -64,7 +64,7 @@
 				</div>
 								<div class="const-title">
 					<img src="../media/images/Constant.png" alt=" " />
-					<a href="#VERSION" title="details" class="const-name">VERSION</a> = 					<span class="var-type"> '0.5'</span>
+					<a href="#VERSION" title="details" class="const-name">VERSION</a> = 					<span class="var-type"> '0.6'</span>
 
 				</div>
 							</div>
@@ -88,6 +88,10 @@
 												<div class="var-title">
 					static <span class="var-type">array</span>
 					<a href="#$aborted" title="details" class="var-name">$aborted</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type">string</span>
+					<a href="#$charset" title="details" class="var-name">$charset</a>
 				</div>
 																<div class="var-title">
 					static <span class="var-type">array</span>
@@ -123,13 +127,17 @@
 				</div>
 																<div class="var-title">
 					static <span class="var-type">array</span>
+					<a href="#$send_file_paths" title="details" class="var-name">$send_file_paths</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type">array</span>
 					<a href="#$stats" title="details" class="var-name">$stats</a>
 				</div>
 																<div class="var-title">
 					static <span class="var-type">string</span>
 					<a href="#$type" title="details" class="var-name">$type</a>
 				</div>
-																																																																																																							</div>
+																																																																																																																							</div>
 		</div>
 	</div>
 
@@ -209,6 +217,12 @@
 									</div>
 														
 				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#getAbortedSummary" title="details" class="method-name">getAbortedSummary</a>
+										()
+									</div>
+														
+				<div class="method-definition">
 					static 						<span class="method-result">array|false</span>
 										<a href="#getAdminAuth" title="details" class="method-name">getAdminAuth</a>
 										()
@@ -241,6 +255,12 @@
 				<div class="method-definition">
 					static 						<span class="method-result">resource</span>
 										<a href="#getContext" title="details" class="method-name">getContext</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#getDefaultCharset" title="details" class="method-name">getDefaultCharset</a>
 										()
 									</div>
 														
@@ -283,6 +303,18 @@
 				<div class="method-definition">
 					static 						<span class="method-result">integer</span>
 										<a href="#getMaxRequests" title="details" class="method-name">getMaxRequests</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#getMimeTypes" title="details" class="method-name">getMimeTypes</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#getSendFilePaths" title="details" class="method-name">getSendFilePaths</a>
 										()
 									</div>
 														
@@ -369,7 +401,7 @@
 										<a href="#__construct" title="details" class="method-name">__construct</a>
 										()
 									</div>
-																																																																																																														
+																																																																																																																						
 				<div class="method-definition">
 											<span class="method-result">array|bool</span>
 										<a href="#getAuthInfo" title="details" class="method-name">getAuthInfo</a>
@@ -381,7 +413,7 @@
 										<a href="#getAuthList" title="details" class="method-name">getAuthList</a>
 										()
 									</div>
-																																																																																																																																																																																																											</div>
+																																																																																																																																																																																																																																			</div>
 		</div>
 	</div>		
 
@@ -401,18 +433,40 @@
 					</div>
 		<div class="info-box-body">
 			<a name="var$aborted" id="$aborted"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			static <span class="var-type">array</span>
 			<span class="var-name">$aborted</span>
-			 = <span class="var-default">array()</span>			(line <span class="line-number">91</span>)
+			 = <span class="var-default">array()</span>			(line <span class="line-number">97</span>)
 		</span>
 	</div>
 
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">A list of any aborted connections.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$charset" id="$charset"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">string</span>
+			<span class="var-name">$charset</span>
+						(line <span class="line-number">67</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The default charset string.</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> protected</li>
 			</ul>
@@ -429,7 +483,7 @@
 		<span class="var-title">
 			static <span class="var-type">array</span>
 			<span class="var-name">$clients</span>
-			 = <span class="var-default">array()</span>			(line <span class="line-number">73</span>)
+			 = <span class="var-default">array()</span>			(line <span class="line-number">79</span>)
 		</span>
 	</div>
 
@@ -495,7 +549,7 @@
 		<span class="var-title">
 			static <span class="var-type">array</span>
 			<span class="var-name">$handlers</span>
-			 = <span class="var-default">array()</span>			(line <span class="line-number">79</span>)
+			 = <span class="var-default">array()</span>			(line <span class="line-number">85</span>)
 		</span>
 	</div>
 
@@ -517,7 +571,7 @@
 		<span class="var-title">
 			static <span class="var-type"><a href="../MiniHTTPD/Handlers/MiniHTTPD_Handlers_Queue.html">MiniHTTPD_Handlers_Queue</a></span>
 			<span class="var-name">$handlersQueue</span>
-						(line <span class="line-number">85</span>)
+						(line <span class="line-number">91</span>)
 		</span>
 	</div>
 
@@ -583,7 +637,7 @@
 		<span class="var-title">
 			static <span class="var-type">bool</span>
 			<span class="var-name">$running</span>
-			 = <span class="var-default"> false</span>			(line <span class="line-number">67</span>)
+			 = <span class="var-default"> false</span>			(line <span class="line-number">73</span>)
 		</span>
 	</div>
 
@@ -598,14 +652,36 @@
 		
 
 </div>
-<a name="var$stats" id="$stats"><!-- --></A>
+<a name="var$send_file_paths" id="$send_file_paths"><!-- --></A>
 <div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			static <span class="var-type">array</span>
+			<span class="var-name">$send_file_paths</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">103</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">A list of paths from which X-SendFile request may be served.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$stats" id="$stats"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">array</span>
 			<span class="var-name">$stats</span>
-			 = <span class="var-default">array(<br />		'up'   =&gt; 0,<br />		'down' =&gt; 0,<br />	)</span>			(line <span class="line-number">97</span>)
+			 = <span class="var-default">array(<br />		'up'   =&gt; 0,<br />		'down' =&gt; 0,<br />	)</span>			(line <span class="line-number">109</span>)
 		</span>
 	</div>
 
@@ -621,7 +697,7 @@
 
 </div>
 <a name="var$type" id="$type"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -662,10 +738,10 @@
 		<div class="info-box-body">
 			<A NAME='method_detail'></A>
 <a name="methodaddConfig" id="addConfig"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static addConfig</span> (line <span class="line-number">555</span>)
+		<span class="method-title">static addConfig</span> (line <span class="line-number">638</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -691,10 +767,10 @@
 			
 	</div>
 <a name="methodaddStatCount" id="addStatCount"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static addStatCount</span> (line <span class="line-number">497</span>)
+		<span class="method-title">static addStatCount</span> (line <span class="line-number">537</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -723,10 +799,10 @@
 			
 	</div>
 <a name="methodallowAPIDocs" id="allowAPIDocs"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static allowAPIDocs</span> (line <span class="line-number">353</span>)
+		<span class="method-title">static allowAPIDocs</span> (line <span class="line-number">393</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -748,10 +824,10 @@
 			
 	</div>
 <a name="methodallowExtrasDir" id="allowExtrasDir"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static allowExtrasDir</span> (line <span class="line-number">363</span>)
+		<span class="method-title">static allowExtrasDir</span> (line <span class="line-number">403</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -773,10 +849,10 @@
 			
 	</div>
 <a name="methodallowServerInfo" id="allowServerInfo"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static allowServerInfo</span> (line <span class="line-number">343</span>)
+		<span class="method-title">static allowServerInfo</span> (line <span class="line-number">383</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -798,10 +874,10 @@
 			
 	</div>
 <a name="methodallowServerStatus" id="allowServerStatus"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static allowServerStatus</span> (line <span class="line-number">333</span>)
+		<span class="method-title">static allowServerStatus</span> (line <span class="line-number">373</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -823,10 +899,10 @@
 			
 	</div>
 <a name="methodcloseSocket" id="closeSocket"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static closeSocket</span> (line <span class="line-number">175</span>)
+		<span class="method-title">static closeSocket</span> (line <span class="line-number">191</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -852,10 +928,10 @@
 			
 	</div>
 <a name="methodcreateListener" id="createListener"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static createListener</span> (line <span class="line-number">617</span>)
+		<span class="method-title">static createListener</span> (line <span class="line-number">700</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -882,10 +958,10 @@
 			
 	</div>
 <a name="methodfactory" id="factory"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static factory</span> (line <span class="line-number">163</span>)
+		<span class="method-title">static factory</span> (line <span class="line-number">179</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -914,10 +990,10 @@
 			
 	</div>
 <a name="methodformatSize" id="formatSize"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static formatSize</span> (line <span class="line-number">526</span>)
+		<span class="method-title">static formatSize</span> (line <span class="line-number">566</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -946,11 +1022,36 @@
 		
 			
 	</div>
+<a name="methodgetAbortedSummary" id="getAbortedSummary"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getAbortedSummary</span> (line <span class="line-number">592</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a brief summary list of any aborted requests.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the formatted summary list</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			getAbortedSummary
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
 <a name="methodgetAdminAuth" id="getAdminAuth"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getAdminAuth</span> (line <span class="line-number">373</span>)
+		<span class="method-title">static getAdminAuth</span> (line <span class="line-number">413</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -975,7 +1076,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getAliveTimeout</span> (line <span class="line-number">230</span>)
+		<span class="method-title">static getAliveTimeout</span> (line <span class="line-number">269</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1000,7 +1101,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getBaseUrl</span> (line <span class="line-number">390</span>)
+		<span class="method-title">static getBaseUrl</span> (line <span class="line-number">430</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1025,7 +1126,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getClientsSummary</span> (line <span class="line-number">538</span>)
+		<span class="method-title">static getClientsSummary</span> (line <span class="line-number">578</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1050,7 +1151,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getConfig</span> (line <span class="line-number">482</span>)
+		<span class="method-title">static getConfig</span> (line <span class="line-number">522</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1080,7 +1181,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getContext</span> (line <span class="line-number">579</span>)
+		<span class="method-title">static getContext</span> (line <span class="line-number">662</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1101,11 +1202,36 @@
 		
 			
 	</div>
-<a name="methodgetDocroot" id="getDocroot"><!-- --></a>
+<a name="methodgetDefaultCharset" id="getDefaultCharset"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getDocroot</span> (line <span class="line-number">200</span>)
+		<span class="method-title">static getDefaultCharset</span> (line <span class="line-number">618</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the default formatted charset string.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the charset string</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			getDefaultCharset
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetDocroot" id="getDocroot"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getDocroot</span> (line <span class="line-number">216</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1127,10 +1253,10 @@
 			
 	</div>
 <a name="methodgetFCGIExtensions" id="getFCGIExtensions"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getFCGIExtensions</span> (line <span class="line-number">254</span>)
+		<span class="method-title">static getFCGIExtensions</span> (line <span class="line-number">293</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1152,10 +1278,10 @@
 			
 	</div>
 <a name="methodgetHandlers" id="getHandlers"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getHandlers</span> (line <span class="line-number">406</span>)
+		<span class="method-title">static getHandlers</span> (line <span class="line-number">446</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1185,10 +1311,10 @@
 			
 	</div>
 <a name="methodgetHandlersQueue" id="getHandlersQueue"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getHandlersQueue</span> (line <span class="line-number">441</span>)
+		<span class="method-title">static getHandlersQueue</span> (line <span class="line-number">481</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1215,10 +1341,10 @@
 			
 	</div>
 <a name="methodgetIndexFiles" id="getIndexFiles"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getIndexFiles</span> (line <span class="line-number">240</span>)
+		<span class="method-title">static getIndexFiles</span> (line <span class="line-number">279</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1240,10 +1366,10 @@
 			
 	</div>
 <a name="methodgetLogPath" id="getLogPath"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getLogPath</span> (line <span class="line-number">323</span>)
+		<span class="method-title">static getLogPath</span> (line <span class="line-number">363</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1265,10 +1391,10 @@
 			
 	</div>
 <a name="methodgetMaxRequests" id="getMaxRequests"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getMaxRequests</span> (line <span class="line-number">220</span>)
+		<span class="method-title">static getMaxRequests</span> (line <span class="line-number">259</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1289,11 +1415,61 @@
 		
 			
 	</div>
-<a name="methodgetServerDocroot" id="getServerDocroot"><!-- --></a>
+<a name="methodgetMimeTypes" id="getMimeTypes"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getMimeTypes</span> (line <span class="line-number">608</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the list of configured mime types.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the mime types list</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			getMimeTypes
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetSendFilePaths" id="getSendFilePaths"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getServerDocroot</span> (line <span class="line-number">210</span>)
+		<span class="method-title">static getSendFilePaths</span> (line <span class="line-number">236</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the list of paths from which X-SendFile requests may be served.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> a list of absolute paths</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			getSendFilePaths
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetServerDocroot" id="getServerDocroot"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getServerDocroot</span> (line <span class="line-number">226</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1315,10 +1491,10 @@
 			
 	</div>
 <a name="methodgetServerInfo" id="getServerInfo"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getServerInfo</span> (line <span class="line-number">267</span>)
+		<span class="method-title">static getServerInfo</span> (line <span class="line-number">306</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1340,10 +1516,10 @@
 			
 	</div>
 <a name="methodgetServerStatusInfo" id="getServerStatusInfo"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getServerStatusInfo</span> (line <span class="line-number">304</span>)
+		<span class="method-title">static getServerStatusInfo</span> (line <span class="line-number">343</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1365,10 +1541,10 @@
 			
 	</div>
 <a name="methodgetSignature" id="getSignature"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getSignature</span> (line <span class="line-number">284</span>)
+		<span class="method-title">static getSignature</span> (line <span class="line-number">323</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1390,10 +1566,10 @@
 			
 	</div>
 <a name="methodgetSoftwareInfo" id="getSoftwareInfo"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getSoftwareInfo</span> (line <span class="line-number">294</span>)
+		<span class="method-title">static getSoftwareInfo</span> (line <span class="line-number">333</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1415,10 +1591,10 @@
 			
 	</div>
 <a name="methodgetStatCount" id="getStatCount"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static getStatCount</span> (line <span class="line-number">511</span>)
+		<span class="method-title">static getStatCount</span> (line <span class="line-number">551</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1447,10 +1623,10 @@
 			
 	</div>
 <a name="methodhandleResponse" id="handleResponse"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static handleResponse</span> (line <span class="line-number">643</span>)
+		<span class="method-title">static handleResponse</span> (line <span class="line-number">727</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1476,10 +1652,10 @@
 			
 	</div>
 <a name="methodisRunning" id="isRunning"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static isRunning</span> (line <span class="line-number">190</span>)
+		<span class="method-title">static isRunning</span> (line <span class="line-number">206</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1501,10 +1677,10 @@
 			
 	</div>
 <a name="methodlaunchBrowser" id="launchBrowser"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static launchBrowser</span> (line <span class="line-number">758</span>)
+		<span class="method-title">static launchBrowser</span> (line <span class="line-number">864</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1527,17 +1703,16 @@
 			
 	</div>
 <a name="methodmain" id="main"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static main</span> (line <span class="line-number">783</span>)
+		<span class="method-title">static main</span> (line <span class="line-number">887</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Runs the main server loop.</p>
 <p class="description"><p>This is where the server does most if its work. Once the listening socket  is established, iterations of the the main loop are controlled entirely by  stream_select() for both client connections and FCGI requests as well as any  open file streams. Each loop should ideally finish as quickly as possible to  enable best concurrency.</p></p>
 	<ul class="tags">
-				<li><span class="field">todo:</span> Add a proper system for timing out idle/slow client connections.</li>
 				<li><span class="field">access:</span> protected</li>
 			</ul>
 	
@@ -1553,10 +1728,10 @@
 			
 	</div>
 <a name="methodremoveClient" id="removeClient"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static removeClient</span> (line <span class="line-number">692</span>)
+		<span class="method-title">static removeClient</span> (line <span class="line-number">789</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1584,10 +1759,10 @@
 			
 	</div>
 <a name="methodshutdown" id="shutdown"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">static shutdown</span> (line <span class="line-number">726</span>)
+		<span class="method-title">static shutdown</span> (line <span class="line-number">832</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1609,10 +1784,10 @@
 			
 	</div>
 <a name="methodstart" id="start"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static start</span> (line <span class="line-number">119</span>)
+		<span class="method-title">static start</span> (line <span class="line-number">131</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1643,10 +1818,10 @@
 			
 	</div>
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">982</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">1099</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1667,10 +1842,10 @@
 			
 	</div>
 <a name="methodgetAuthInfo" id="getAuthInfo"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getAuthInfo</span> (line <span class="line-number">463</span>)
+		<span class="method-title">getAuthInfo</span> (line <span class="line-number">503</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1697,10 +1872,10 @@
 			
 	</div>
 <a name="methodgetAuthList" id="getAuthList"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getAuthList</span> (line <span class="line-number">452</span>)
+		<span class="method-title">getAuthList</span> (line <span class="line-number">492</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1740,7 +1915,7 @@
 					</div>
 		<div class="info-box-body">
 			<a name="constPROTOCOL" id="PROTOCOL"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../media/images/Variable.png" />
@@ -1757,13 +1932,13 @@
 	
 </div>
 <a name="constVERSION" id="VERSION"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../media/images/Variable.png" />
 		<span class="const-title">
 			<span class="const-name">VERSION</span>
-			 = <span class="const-default"> '0.5'</span>
+			 = <span class="const-default"> '0.6'</span>
 			(line <span class="line-number">23</span>)
 		</span>
 	</div>
@@ -1778,7 +1953,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 24 Mar 2011 03:20:36 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sat, 11 Feb 2012 22:27:34 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

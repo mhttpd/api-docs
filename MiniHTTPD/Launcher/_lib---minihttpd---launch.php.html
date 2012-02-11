@@ -25,7 +25,7 @@
 <p class="description"><p>This file bootstraps various settings, initializes the environment, loads  the required function and class files and starts the main server. Note that  the server can't be launched properly without calling this script.</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> MiniHTTPD Team</li>
-				<li><span class="field">copyright:</span> (c) 2010 MiniHTTPD Team</li>
+				<li><span class="field">copyright:</span> (c) 2010-2012 MiniHTTPD Team</li>
 				<li><span class="field">license:</span> BSD</li>
 			</ul>
 		
@@ -43,27 +43,27 @@
 															</div>
 		<div class="info-box-body">	
 			<a name="_user_classes_php){requireclasses_php"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div>
 		<span class="include-title">
 			<span class="include-type">include</span>
 			(<span class="include-name">'user_classes.php'){require'classes.php'</span>)
-			(line <span class="line-number">104</span>)
+			(line <span class="line-number">111</span>)
 		</span>
 	</div>
 
 	<!-- ========== Info from phpDoc block ========= -->
 	
 </div>
-<a name="_functions\common_php"><!-- --></a>
-<div class="evenrow">
+<a name="_helpers\common_php"><!-- --></a>
+<div class="oddrow">
 	
 	<div>
 		<span class="include-title">
 			<span class="include-type">require</span>
-			(<span class="include-name"><a href="../../MiniHTTPD/Launcher/_lib---minihttpd---functions---common.php.html">'functions\common.php'</a></span>)
-			(line <span class="line-number">101</span>)
+			(<span class="include-name"><a href="../../MiniHTTPD/Launcher/_lib---minihttpd---helpers---common.php.html">'helpers\common.php'</a></span>)
+			(line <span class="line-number">108</span>)
 		</span>
 	</div>
 
@@ -83,12 +83,12 @@
 											</div>
 		<div class="info-box-body">	
 			<a name="defineEXEPATH"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div>
 		<span class="const-title">
 			<span class="const-name">EXEPATH</span> = realpath($_ENV['MHTTPD_ROOT']).$DS
-			(line <span class="line-number">23</span>)
+			(line <span class="line-number">26</span>)
 		</span>
 	</div>
 	
@@ -97,12 +97,12 @@
 		
 </div>
 <a name="defineHAS_CONSOLE"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div>
 		<span class="const-title">
-			<span class="const-name">HAS_CONSOLE</span> = 1
-			(line <span class="line-number">41</span>)
+			<span class="const-name">HAS_CONSOLE</span> = (php_sapi_name()=='cli')
+			(line <span class="line-number">43</span>)
 		</span>
 	</div>
 	
@@ -111,12 +111,12 @@
 		
 </div>
 <a name="defineINIPATH"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div>
 		<span class="const-title">
 			<span class="const-name">INIPATH</span> = realpath($_ENV['MHTTPD_INIPATH']).$DS
-			(line <span class="line-number">32</span>)
+			(line <span class="line-number">35</span>)
 		</span>
 	</div>
 	
@@ -130,7 +130,7 @@
 	
 	
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 24 Mar 2011 03:20:34 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sat, 11 Feb 2012 22:27:33 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

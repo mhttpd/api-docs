@@ -26,7 +26,7 @@
 <p class="description"><p>The client object delegates responsibility to handlers for processing various  aspects of the current request. These may range from changing request details to  starting the client response. Handlers may act on both the client and request  objects, so can also serve as a bridge between the two.</p><p>Usually the handlers will be called in the order in which they have been listed  in the server's ini file. If the request is being reprocessed, various options  exist for excluding or skipping repeat calls to individual handlers. Handlers  may also be re-called on the fly via the methods of the handler queue object  used by the client.</p><p>To add a new handler, first extend this class and implement its abstract methods.  Then load the extended handler via the classes.php and default.ini files (or the  user versions, see the notes in each).</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> MiniHTTPD Team</li>
-				<li><span class="field">copyright:</span> (c) 2010 MiniHTTPD Team</li>
+				<li><span class="field">copyright:</span> (c) 2010-2012 MiniHTTPD Team</li>
 				<li><span class="field">see:</span> <a href="../../MiniHTTPD/Handlers/MiniHTTPD_Handlers_Queue.html">MiniHTTPD_Handlers_Queue</a></li>
 				<li><span class="field">abstract:</span> </li>
 				<li><span class="field">usedby:</span> <a href="../../MiniHTTPD/MiniHTTPD_Server.html#methodstart">MiniHTTPD_Server::start()</a></li>
@@ -91,7 +91,7 @@
 				</div>
 																<div class="var-title">
 					<span class="var-type">bool</span>
-					<a href="#$returnValue" title="details" class="var-name">$returnValue</a>
+					<a href="#$result" title="details" class="var-name">$result</a>
 				</div>
 																<div class="var-title">
 					<span class="var-type">bool</span>
@@ -146,7 +146,7 @@
 														
 				<div class="method-definition">
 											<span class="method-result">bool</span>
-										<a href="#getReturn" title="details" class="method-name">getReturn</a>
+										<a href="#getResult" title="details" class="method-name">getResult</a>
 										()
 									</div>
 														
@@ -216,7 +216,7 @@
 		<div class="info-box-body">
 			
 <a name="var$canSkip" id="$canSkip"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -238,7 +238,7 @@
 
 </div>
 <a name="var$client" id="$client"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -260,7 +260,7 @@
 
 </div>
 <a name="var$counts" id="$counts"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -282,7 +282,7 @@
 
 </div>
 <a name="var$debug" id="$debug"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -304,7 +304,7 @@
 
 </div>
 <a name="var$error" id="$error"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -326,7 +326,7 @@
 
 </div>
 <a name="var$isFinal" id="$isFinal"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -348,7 +348,7 @@
 
 </div>
 <a name="var$persist" id="$persist"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -370,7 +370,7 @@
 
 </div>
 <a name="var$request" id="$request"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -391,13 +391,13 @@
 		
 
 </div>
-<a name="var$returnValue" id="$returnValue"><!-- --></A>
-<div class="oddrow">
+<a name="var$result" id="$result"><!-- --></A>
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">bool</span>
-			<span class="var-name">$returnValue</span>
+			<span class="var-name">$result</span>
 			 = <span class="var-default"> true</span>			(line <span class="line-number">65</span>)
 		</span>
 	</div>
@@ -414,7 +414,7 @@
 
 </div>
 <a name="var$useOnce" id="$useOnce"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -451,7 +451,7 @@
 		<div class="info-box-body">
 			<A NAME='method_detail'></A>
 <a name="methodaddCount" id="addCount"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">addCount</span> (line <span class="line-number">188</span>)
@@ -480,7 +480,7 @@
 			
 	</div>
 <a name="methodcanSkip" id="canSkip"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">canSkip</span> (line <span class="line-number">157</span>)
@@ -510,7 +510,7 @@
 			
 	</div>
 <a name="methodexecute" id="execute"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">execute</span> (line <span class="line-number">288</span>)
@@ -518,7 +518,7 @@
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">This method performs the main actions of the handler on the client and  request objects if it matches the request.</p>
-<p class="description"><p>Handlers may have various responsibilities, but typically if the handler is  final this method should start the appropriate response on the client, or  send any error or redirect responses and report errors back to the main server  loop via $returnValue. If any details of the request are to be changed, the  request object should be updated accordingly.</p><p>This method may also require that the handler queue should be re-processed  from the top following execution (e.g. see the directory handler).</p></p>
+<p class="description"><p>Handlers may have various responsibilities, but typically if the handler is  final this method should start the appropriate response on the client, or  send any error or redirect responses and report errors back to the main server  loop via $result. If any details of the request are to be changed, the  request object should be updated accordingly.</p><p>This method may also require that the handler queue should be re-processed  from the top following execution (e.g. see the directory handler).</p></p>
 	<ul class="tags">
 				<li><span class="field">return:</span> true if execution was successful</li>
 				<li><span class="field">abstract:</span> </li>
@@ -537,7 +537,7 @@
 			
 	</div>
 <a name="methodgetCount" id="getCount"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">getCount</span> (line <span class="line-number">201</span>)
@@ -567,7 +567,7 @@
 			
 	</div>
 <a name="methodgetError" id="getError"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">getError</span> (line <span class="line-number">221</span>)
@@ -591,11 +591,11 @@
 		
 			
 	</div>
-<a name="methodgetReturn" id="getReturn"><!-- --></a>
-<div class="evenrow">
+<a name="methodgetResult" id="getResult"><!-- --></a>
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getReturn</span> (line <span class="line-number">243</span>)
+		<span class="method-title">getResult</span> (line <span class="line-number">243</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -609,7 +609,7 @@
 	<div class="method-signature">
 		<span class="method-result">bool</span>
 		<span class="method-name">
-			getReturn
+			getResult
 		</span>
 				()
 			</div>
@@ -618,7 +618,7 @@
 			
 	</div>
 <a name="methodhasError" id="hasError"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">hasError</span> (line <span class="line-number">211</span>)
@@ -643,7 +643,7 @@
 			
 	</div>
 <a name="methodinit" id="init"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">init</span> (line <span class="line-number">103</span>)
@@ -672,7 +672,7 @@
 			
 	</div>
 <a name="methodisFinal" id="isFinal"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">isFinal</span> (line <span class="line-number">141</span>)
@@ -702,7 +702,7 @@
 			
 	</div>
 <a name="methodmatches" id="matches"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">matches</span> (line <span class="line-number">271</span>)
@@ -729,7 +729,7 @@
 			
 	</div>
 <a name="methodpersist" id="persist"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">persist</span> (line <span class="line-number">258</span>)
@@ -755,7 +755,7 @@
 			
 	</div>
 <a name="methodreset" id="reset"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">reset</span> (line <span class="line-number">127</span>)
@@ -780,7 +780,7 @@
 			
 	</div>
 <a name="methodskipped" id="skipped"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">skipped</span> (line <span class="line-number">232</span>)
@@ -805,7 +805,7 @@
 			
 	</div>
 <a name="methoduseOnce" id="useOnce"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">useOnce</span> (line <span class="line-number">173</span>)
@@ -840,7 +840,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 24 Mar 2011 03:20:31 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sat, 11 Feb 2012 22:27:32 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

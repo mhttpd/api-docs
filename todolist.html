@@ -14,10 +14,6 @@
 <ul>
     <li>Test this with other Windows versions &gt; XP SP3.</li>
 </ul>
-<h3><a href="MiniHTTPD/MiniHTTPD_Server.html#methodmain">MiniHTTPD_Server::main()</a></h3>
-<ul>
-    <li>Add a proper system for timing out idle/slow client connections.</li>
-</ul>
 <h3><a href="MiniHTTPD/MiniFCGI/MiniFCGI_Record.html">MiniFCGI_Record</a></h3>
 <ul>
     <li>Add support for FCGI management records.</li>
@@ -34,12 +30,16 @@
 <ul>
     <li>Allow FCGI_Manager to kill the FCGI processes.</li>
 </ul>
+<h3><a href="MiniHTTPD/Handlers/MiniHTTPD_Handler_Static.html#methodstartStatic">MiniHTTPD_Handler_Static::startStatic()</a></h3>
+<ul>
+    <li>add support for Range, Content-Range / 206 Partial Content  http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35  http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.16</li>
+</ul>
 <h3><a href="MiniHTTPD/MiniFCGI/MiniFCGI_Manager.html#methodverifyProcesses">MiniFCGI_Manager::verifyProcesses()</a></h3>
 <ul>
     <li>This needs a much more robust approach.</li>
 </ul>
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 24 Mar 2011 03:20:36 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sat, 11 Feb 2012 22:27:34 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</body>
 </html>

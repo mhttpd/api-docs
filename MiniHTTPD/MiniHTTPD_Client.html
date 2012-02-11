@@ -26,7 +26,7 @@
 <p class="description"><p>This class handles client requests and sends the relevant responses via the  MiniHTTPD_Request and MiniHTTPD_Response objects that it creates for each new  client. If a client has requested dynamic content, the class also acts as a  bridge for the MiniFCGI_Client object. This design ensures that all of the  created objects are tied to the individual client connections for easier and  more transparent management of resources.</p><p>From version 0.4, request handlers have been implemented as objects for a more  modular approach. These are managed in the processRequest() method, and are  configured in order of execution in the loaded handlers queue. The $handler  variable holds info about the currently selected handler. To add new handlers,  see the notes for the MiniHTTPD_Request_Handler class.</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> MiniHTTPD Team</li>
-				<li><span class="field">copyright:</span> (c) 2010 MiniHTTPD Team</li>
+				<li><span class="field">copyright:</span> (c) 2010-2012 MiniHTTPD Team</li>
 				<li><span class="field">see:</span> <a href="../MiniHTTPD/Handlers/MiniHTTPD_Request_Handler.html">MiniHTTPD_Request_Handler</a></li>
 				<li><span class="field">license:</span> BSD</li>
 			</ul>
@@ -54,13 +54,9 @@
 								</div>
 		<div class="info-box-body">
 			<div class="var-summary">
-																																																																																																																																																																																<div class="var-title">
+																																																																																																																																																																																																<div class="var-title">
 					<span class="var-type">string</span>
 					<a href="#$address" title="details" class="var-name">$address</a>
-				</div>
-																<div class="var-title">
-					<span class="var-type">integer</span>
-					<a href="#$blockSize" title="details" class="var-name">$blockSize</a>
 				</div>
 																<div class="var-title">
 					<span class="var-type">bool</span>
@@ -108,6 +104,10 @@
 				</div>
 																<div class="var-title">
 					<span class="var-type">bool</span>
+					<a href="#$posting" title="details" class="var-name">$posting</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">bool</span>
 					<a href="#$reauthorize" title="details" class="var-name">$reauthorize</a>
 				</div>
 																<div class="var-title">
@@ -117,6 +117,10 @@
 																<div class="var-title">
 					<span class="var-type"><a href="../MiniHTTPD/MiniHTTPD_Request.html">MiniHTTPD_Request</a></span>
 					<a href="#$request" title="details" class="var-name">$request</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$requestBufferSize" title="details" class="var-name">$requestBufferSize</a>
 				</div>
 																<div class="var-title">
 					<span class="var-type"><a href="../MiniHTTPD/MiniHTTPD_Response.html">MiniHTTPD_Response</a></span>
@@ -129,6 +133,10 @@
 																<div class="var-title">
 					<span class="var-type">resource</span>
 					<a href="#$socket" title="details" class="var-name">$socket</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$streamBufferSize" title="details" class="var-name">$streamBufferSize</a>
 				</div>
 																<div class="var-title">
 					<span class="var-type">bool</span>
@@ -150,7 +158,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																																																																																																																																																																																																						
+																																																																																																																																																																																																																																																																																																																																																																																																																						
 				<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
@@ -160,7 +168,7 @@
 				<div class="method-definition">
 											<span class="method-result"><a href="../MiniHTTPD/MiniHTTPD_Client.html">MiniHTTPD_Client</a></span>
 										<a href="#addFCGIClient" title="details" class="method-name">addFCGIClient</a>
-											(<span class="var-type"><a href="../MiniHTTPD/MiniFCGI/MiniFCGI_Client.html">MiniFCGI_Client</a></span>&nbsp;<span class="var-name">$fcgi</span>)
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$fcgi</span>)
 									</div>
 														
 				<div class="method-definition">
@@ -231,7 +239,31 @@
 														
 				<div class="method-definition">
 											<span class="method-result">bool</span>
+										<a href="#hasBlockingFCGI" title="details" class="method-name">hasBlockingFCGI</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#hasChunkedResponse" title="details" class="method-name">hasChunkedResponse</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#hasEndedFCGI" title="details" class="method-name">hasEndedFCGI</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
 										<a href="#hasFCGI" title="details" class="method-name">hasFCGI</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#hasFullRequestBuffer" title="details" class="method-name">hasFullRequestBuffer</a>
 										()
 									</div>
 														
@@ -255,6 +287,12 @@
 														
 				<div class="method-definition">
 											<span class="method-result">bool</span>
+										<a href="#hasRequestBody" title="details" class="method-name">hasRequestBody</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
 										<a href="#hasResponse" title="details" class="method-name">hasResponse</a>
 										()
 									</div>
@@ -267,6 +305,18 @@
 														
 				<div class="method-definition">
 											<span class="method-result">bool</span>
+										<a href="#hasSentFCGI" title="details" class="method-name">hasSentFCGI</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#hasSentHeaders" title="details" class="method-name">hasSentHeaders</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
 										<a href="#isChunking" title="details" class="method-name">isChunking</a>
 										()
 									</div>
@@ -274,6 +324,12 @@
 				<div class="method-definition">
 											<span class="method-result">bool</span>
 										<a href="#isFinished" title="details" class="method-name">isFinished</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#isPosting" title="details" class="method-name">isPosting</a>
 										()
 									</div>
 														
@@ -315,6 +371,12 @@
 														
 				<div class="method-definition">
 											<span class="method-result">void</span>
+										<a href="#readRequestBody" title="details" class="method-name">readRequestBody</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
 										<a href="#reauthorize" title="details" class="method-name">reauthorize</a>
 											(<span class="var-type">bool</span>&nbsp;<span class="var-name">$reauth</span>)
 									</div>
@@ -323,6 +385,12 @@
 											<span class="method-result">void</span>
 										<a href="#sendError" title="details" class="method-name">sendError</a>
 											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$code</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$close</span> = <span class="var-default">true</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$headers</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#sendFCGIRequest" title="details" class="method-name">sendFCGIRequest</a>
+										()
 									</div>
 														
 				<div class="method-definition">
@@ -403,7 +471,7 @@
 		<div class="info-box-body">
 			
 <a name="var$address" id="$address"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -424,29 +492,6 @@
 		
 
 </div>
-<a name="var$blockSize" id="$blockSize"><!-- --></A>
-<div class="evenrow">
-
-	<div class="var-header">
-		<span class="var-title">
-			<span class="var-type">integer</span>
-			<span class="var-name">$blockSize</span>
-			 = <span class="var-default"> 16384</span>			(line <span class="line-number">115</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">The maximum block size for outputting streamed responses.</p>
-	<ul class="tags">
-				<li><span class="field">var:</span> 16 KB</li>
-				<li><span class="field">access:</span> protected</li>
-			</ul>
-	
-	
-		
-		
-
-</div>
 <a name="var$chunking" id="$chunking"><!-- --></A>
 <div class="oddrow">
 
@@ -454,7 +499,7 @@
 		<span class="var-title">
 			<span class="var-type">bool</span>
 			<span class="var-name">$chunking</span>
-			 = <span class="var-default"> false</span>			(line <span class="line-number">133</span>)
+			 = <span class="var-default"> false</span>			(line <span class="line-number">145</span>)
 		</span>
 	</div>
 
@@ -520,7 +565,7 @@
 		<span class="var-title">
 			<span class="var-type">bool</span>
 			<span class="var-name">$finished</span>
-			 = <span class="var-default"> true</span>			(line <span class="line-number">121</span>)
+			 = <span class="var-default"> false</span>			(line <span class="line-number">127</span>)
 		</span>
 	</div>
 
@@ -630,7 +675,7 @@
 		<span class="var-title">
 			<span class="var-type">integer</span>
 			<span class="var-name">$numRequests</span>
-			 = <span class="var-default"> 1</span>			(line <span class="line-number">145</span>)
+			 = <span class="var-default"> 1</span>			(line <span class="line-number">157</span>)
 		</span>
 	</div>
 
@@ -689,8 +734,30 @@
 		
 
 </div>
-<a name="var$reauthorize" id="$reauthorize"><!-- --></A>
+<a name="var$posting" id="$posting"><!-- --></A>
 <div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">bool</span>
+			<span class="var-name">$posting</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number">133</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Is the client currently posting data?</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$reauthorize" id="$reauthorize"><!-- --></A>
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -712,7 +779,7 @@
 
 </div>
 <a name="var$reprocessing" id="$reprocessing"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -734,7 +801,7 @@
 
 </div>
 <a name="var$request" id="$request"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -747,6 +814,29 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">The active request object for the client.</p>
 	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$requestBufferSize" id="$requestBufferSize"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$requestBufferSize</span>
+			 = <span class="var-default"> 32768</span>			(line <span class="line-number">115</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The maximum bytes to buffer when reading request body content.</p>
+	<ul class="tags">
+				<li><span class="field">var:</span> 32 KB</li>
 				<li><span class="field">access:</span> protected</li>
 			</ul>
 	
@@ -784,7 +874,7 @@
 		<span class="var-title">
 			<span class="var-type">bool</span>
 			<span class="var-name">$sentHeaders</span>
-			 = <span class="var-default"> false</span>			(line <span class="line-number">139</span>)
+			 = <span class="var-default"> false</span>			(line <span class="line-number">151</span>)
 		</span>
 	</div>
 
@@ -821,14 +911,37 @@
 		
 
 </div>
-<a name="var$streaming" id="$streaming"><!-- --></A>
+<a name="var$streamBufferSize" id="$streamBufferSize"><!-- --></A>
 <div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$streamBufferSize</span>
+			 = <span class="var-default"> 16384</span>			(line <span class="line-number">121</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The maximum bytes to buffer when sending streamed responses.</p>
+	<ul class="tags">
+				<li><span class="field">var:</span> 16 KB</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$streaming" id="$streaming"><!-- --></A>
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">bool</span>
 			<span class="var-name">$streaming</span>
-			 = <span class="var-default"> false</span>			(line <span class="line-number">127</span>)
+			 = <span class="var-default"> false</span>			(line <span class="line-number">139</span>)
 		</span>
 	</div>
 
@@ -859,10 +972,10 @@
 		<div class="info-box-body">
 			<A NAME='method_detail'></A>
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">152</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">164</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -894,10 +1007,10 @@
 			
 	</div>
 <a name="methodaddFCGIClient" id="addFCGIClient"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">addFCGIClient</span> (line <span class="line-number">757</span>)
+		<span class="method-title">addFCGIClient</span> (line <span class="line-number">894</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -912,7 +1025,7 @@
 		<span class="method-name">
 			addFCGIClient
 		</span>
-					(<span class="var-type"><a href="../MiniHTTPD/MiniFCGI/MiniFCGI_Client.html">MiniFCGI_Client</a></span>&nbsp;<span class="var-name">$fcgi</span>)
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$fcgi</span>)
 			</div>
 	
 			<ul class="parameters">
@@ -924,10 +1037,10 @@
 			
 	</div>
 <a name="methodclearResponse" id="clearResponse"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">clearResponse</span> (line <span class="line-number">712</span>)
+		<span class="method-title">clearResponse</span> (line <span class="line-number">849</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -949,10 +1062,10 @@
 			
 	</div>
 <a name="methodfinish" id="finish"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">finish</span> (line <span class="line-number">474</span>)
+		<span class="method-title">finish</span> (line <span class="line-number">551</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -974,10 +1087,10 @@
 			
 	</div>
 <a name="methodgetFCGIClientID" id="getFCGIClientID"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFCGIClientID</span> (line <span class="line-number">778</span>)
+		<span class="method-title">getFCGIClientID</span> (line <span class="line-number">915</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -999,10 +1112,10 @@
 			
 	</div>
 <a name="methodgetFCGIProcess" id="getFCGIProcess"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFCGIProcess</span> (line <span class="line-number">811</span>)
+		<span class="method-title">getFCGIProcess</span> (line <span class="line-number">979</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1024,10 +1137,10 @@
 			
 	</div>
 <a name="methodgetFCGISocket" id="getFCGISocket"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getFCGISocket</span> (line <span class="line-number">791</span>)
+		<span class="method-title">getFCGISocket</span> (line <span class="line-number">928</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1049,10 +1162,10 @@
 			
 	</div>
 <a name="methodgetID" id="getID"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getID</span> (line <span class="line-number">541</span>)
+		<span class="method-title">getID</span> (line <span class="line-number">623</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1073,10 +1186,10 @@
 			
 	</div>
 <a name="methodgetRequest" id="getRequest"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getRequest</span> (line <span class="line-number">692</span>)
+		<span class="method-title">getRequest</span> (line <span class="line-number">829</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1097,10 +1210,10 @@
 			
 	</div>
 <a name="methodgetResponse" id="getResponse"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getResponse</span> (line <span class="line-number">702</span>)
+		<span class="method-title">getResponse</span> (line <span class="line-number">839</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1121,10 +1234,10 @@
 			
 	</div>
 <a name="methodgetSocket" id="getSocket"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getSocket</span> (line <span class="line-number">601</span>)
+		<span class="method-title">getSocket</span> (line <span class="line-number">738</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1146,10 +1259,10 @@
 			
 	</div>
 <a name="methodgetStream" id="getStream"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getStream</span> (line <span class="line-number">650</span>)
+		<span class="method-title">getStream</span> (line <span class="line-number">787</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1171,10 +1284,10 @@
 			
 	</div>
 <a name="methodgetSummary" id="getSummary"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getSummary</span> (line <span class="line-number">525</span>)
+		<span class="method-title">getSummary</span> (line <span class="line-number">607</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1195,11 +1308,85 @@
 		
 			
 	</div>
+<a name="methodhasBlockingFCGI" id="hasBlockingFCGI"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasBlockingFCGI</span> (line <span class="line-number">949</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the FCGI process will block while waiting for the request to  be completed.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if FCGI will block</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasBlockingFCGI
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasChunkedResponse" id="hasChunkedResponse"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasChunkedResponse</span> (line <span class="line-number">713</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the client response is chunked transfer-encoding.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasChunkedResponse
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasEndedFCGI" id="hasEndedFCGI"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasEndedFCGI</span> (line <span class="line-number">959</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the FCGI request has been ended by the connected process.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if FCGI request is completed</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasEndedFCGI
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
 <a name="methodhasFCGI" id="hasFCGI"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasFCGI</span> (line <span class="line-number">768</span>)
+		<span class="method-title">hasFCGI</span> (line <span class="line-number">905</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1219,11 +1406,35 @@
 		
 			
 	</div>
-<a name="methodhasOpenFCGI" id="hasOpenFCGI"><!-- --></a>
+<a name="methodhasFullRequestBuffer" id="hasFullRequestBuffer"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasOpenFCGI</span> (line <span class="line-number">801</span>)
+		<span class="method-title">hasFullRequestBuffer</span> (line <span class="line-number">723</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the buffer for the request body has reached maximum size.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasFullRequestBuffer
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasOpenFCGI" id="hasOpenFCGI"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasOpenFCGI</span> (line <span class="line-number">938</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1245,10 +1456,10 @@
 			
 	</div>
 <a name="methodhasOpenStream" id="hasOpenStream"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasOpenStream</span> (line <span class="line-number">661</span>)
+		<span class="method-title">hasOpenStream</span> (line <span class="line-number">798</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1270,10 +1481,10 @@
 			
 	</div>
 <a name="methodhasRequest" id="hasRequest"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasRequest</span> (line <span class="line-number">571</span>)
+		<span class="method-title">hasRequest</span> (line <span class="line-number">663</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1293,11 +1504,35 @@
 		
 			
 	</div>
+<a name="methodhasRequestBody" id="hasRequestBody"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasRequestBody</span> (line <span class="line-number">673</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the client has any request body content currently buffered.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasRequestBody
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
 <a name="methodhasResponse" id="hasResponse"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasResponse</span> (line <span class="line-number">581</span>)
+		<span class="method-title">hasResponse</span> (line <span class="line-number">683</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1321,7 +1556,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">hasResponseContent</span> (line <span class="line-number">591</span>)
+		<span class="method-title">hasResponseContent</span> (line <span class="line-number">693</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1341,11 +1576,60 @@
 		
 			
 	</div>
+<a name="methodhasSentFCGI" id="hasSentFCGI"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasSentFCGI</span> (line <span class="line-number">969</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the FCGI request has been sent to the connected process.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if FCGI request was sent</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasSentFCGI
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasSentHeaders" id="hasSentHeaders"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasSentHeaders</span> (line <span class="line-number">703</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the client has sent all response headers.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			hasSentHeaders
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
 <a name="methodisChunking" id="isChunking"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">isChunking</span> (line <span class="line-number">744</span>)
+		<span class="method-title">isChunking</span> (line <span class="line-number">881</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1370,7 +1654,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">isFinished</span> (line <span class="line-number">551</span>)
+		<span class="method-title">isFinished</span> (line <span class="line-number">633</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1390,15 +1674,39 @@
 		
 			
 	</div>
-<a name="methodisReady" id="isReady"><!-- --></a>
+<a name="methodisPosting" id="isPosting"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">isReady</span> (line <span class="line-number">561</span>)
+		<span class="method-title">isPosting</span> (line <span class="line-number">653</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Determines whether the client is ready to receive a new request.</p>
+<p class="short-description">Determines whether the client is in the process of posting data.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			isPosting
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisReady" id="isReady"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isReady</span> (line <span class="line-number">643</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the client is ready to process a new request.</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -1415,10 +1723,10 @@
 			
 	</div>
 <a name="methodisReprocessing" id="isReprocessing"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">isReprocessing</span> (line <span class="line-number">723</span>)
+		<span class="method-title">isReprocessing</span> (line <span class="line-number">860</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1439,10 +1747,10 @@
 			
 	</div>
 <a name="methodisStreaming" id="isStreaming"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">isStreaming</span> (line <span class="line-number">734</span>)
+		<span class="method-title">isStreaming</span> (line <span class="line-number">871</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1464,10 +1772,10 @@
 			
 	</div>
 <a name="methodneedsAuthorization" id="needsAuthorization"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">needsAuthorization</span> (line <span class="line-number">671</span>)
+		<span class="method-title">needsAuthorization</span> (line <span class="line-number">808</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1488,10 +1796,10 @@
 			
 	</div>
 <a name="methodprocessRequest" id="processRequest"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">processRequest</span> (line <span class="line-number">173</span>)
+		<span class="method-title">processRequest</span> (line <span class="line-number">185</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1517,15 +1825,15 @@
 			
 	</div>
 <a name="methodreadFCGIResponse" id="readFCGIResponse"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">readFCGIResponse</span> (line <span class="line-number">835</span>)
+		<span class="method-title">readFCGIResponse</span> (line <span class="line-number">1029</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Receives the FCGI response and processes it for returning to the client.</p>
-<p class="description"><p>The main task here is to handle the raw response returned from the FastCGI  process and create a response object for communicating the result to the  client. This involves merging any received headers with the server's default  headers, calculating the content length, etc. It's more efficient in this  case to use a single response object bound to both the server client and  the FCGI client objects. Currently the whole of the  response body needs to  be buffered to get its content length, so chunked transport-encoding will be  automatically applied if the body exceeds the FCGI buffer size.</p></p>
+<p class="description"><p>The main task here is to handle the raw response returned from the FastCGI  process and create a response object for communicating the result to the  client. This involves merging any received headers with the server's default  headers, calculating the content length, etc. It's more efficient in this  case to use a single response object bound to both the server client and  the FCGI client objects. Chunked transport-encoding will be automatically  applied if the body exceeds the FCGI buffer size.</p></p>
 	<ul class="tags">
 				<li><span class="field">return:</span> false if the client response needs to be aborted</li>
 				<li><span class="field">access:</span> public</li>
@@ -1543,11 +1851,36 @@
 		
 			
 	</div>
+<a name="methodreadRequestBody" id="readRequestBody"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">readRequestBody</span> (line <span class="line-number">339</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Buffers any request body content locally.</p>
+<p class="description"><p>This is especially handy for managing FCGI requests more efficiently, as the  buffer can be flushed directly to the FCGI process while the body is read in  by each main server loop, keeping memory usage low and concurrency high.</p><p>Note: chunked requests still need to be buffered in whole before sending to  the FCGI process, as the content length needs to be known in advance.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			readRequestBody
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
 <a name="methodreauthorize" id="reauthorize"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">reauthorize</span> (line <span class="line-number">682</span>)
+		<span class="method-title">reauthorize</span> (line <span class="line-number">819</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1576,7 +1909,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">sendError</span> (line <span class="line-number">895</span>)
+		<span class="method-title">sendError</span> (line <span class="line-number">1094</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1611,16 +1944,42 @@
 		
 			
 	</div>
-<a name="methodsendFileX" id="sendFileX"><!-- --></a>
+<a name="methodsendFCGIRequest" id="sendFCGIRequest"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">sendFileX</span> (line <span class="line-number">975</span>)
+		<span class="method-title">sendFCGIRequest</span> (line <span class="line-number">996</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends the next stage of the FCGI request to the connected process.</p>
+<p class="description"><p>This method can be called repeatedly to allow buffering of the FCGI request,  which limits the chances of the main server loop being blocked by requests  with large bodies, especially file uploads.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> false if the request could not be sent</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			sendFCGIRequest
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsendFileX" id="sendFileX"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">sendFileX</span> (line <span class="line-number">1179</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Implements X-SendFile requests from FCGI processes.</p>
-<p class="description"><p>If the FCGI returns an X-SendFile header containing a valid filename within  the configured docroot, the server will send the static file directly. This  is especially useful for large file transfers. The FCGI script should also  usually set the Content-Disposition and Content-Type headers for sending files  as attachments, otherwise the file contents will be displayed in the browser.</p><p>Examples of valid X-SendFile headers:</p><p>x-SendFile: &quot;full_file_path&quot;            &lt;- will use cache info  x-SendFile: &quot;full_file_path&quot;; nocache   &lt;- will ignore cache info</p></p>
+<p class="description"><p>If the FCGI returns an X-SendFile header containing a valid filename within  the configured paths, the server will stream the static file directly. This  is especially useful for large file transfers. The FCGI script should also  usually set the Content-Disposition and Content-Type headers for sending files  as attachments, otherwise the file contents will be displayed in the browser.  The X-SendFile header may be a semi-colon separated list of values, the first  of which must always be the absolute path to the file. Options include:</p><p><ul><li>nocache  :  will ignore cache info, last-modified checks</li><li>encoded  :  will not remove any Content-Encoding header</li></ul>  Examples of valid X-SendFile headers:</p><p><ul><li>X-SendFile: &quot;full_file_path&quot;</li><li>X-SendFile: &quot;full_file_path&quot;; nocache; encoded</li></ul></p></p>
 	<ul class="tags">
 				<li><span class="field">return:</span> true if the file was sent successfully</li>
 				<li><span class="field">access:</span> protected</li>
@@ -1643,10 +2002,10 @@
 			
 	</div>
 <a name="methodsendNotModified" id="sendNotModified"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">sendNotModified</span> (line <span class="line-number">926</span>)
+		<span class="method-title">sendNotModified</span> (line <span class="line-number">1125</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1667,10 +2026,10 @@
 			
 	</div>
 <a name="methodsendRedirect" id="sendRedirect"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">sendRedirect</span> (line <span class="line-number">941</span>)
+		<span class="method-title">sendRedirect</span> (line <span class="line-number">1140</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1699,10 +2058,10 @@
 			
 	</div>
 <a name="methodsendResponse" id="sendResponse"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">sendResponse</span> (line <span class="line-number">384</span>)
+		<span class="method-title">sendResponse</span> (line <span class="line-number">458</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1730,10 +2089,10 @@
 			
 	</div>
 <a name="methodsetInput" id="setInput"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setInput</span> (line <span class="line-number">639</span>)
+		<span class="method-title">setInput</span> (line <span class="line-number">776</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1760,10 +2119,10 @@
 			
 	</div>
 <a name="methodsetSocket" id="setSocket"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setSocket</span> (line <span class="line-number">612</span>)
+		<span class="method-title">setSocket</span> (line <span class="line-number">749</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1790,10 +2149,10 @@
 			
 	</div>
 <a name="methodsetTimeout" id="setTimeout"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setTimeout</span> (line <span class="line-number">627</span>)
+		<span class="method-title">setTimeout</span> (line <span class="line-number">764</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1820,14 +2179,14 @@
 			
 	</div>
 <a name="methodstartRequest" id="startRequest"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">startRequest</span> (line <span class="line-number">279</span>)
+		<span class="method-title">startRequest</span> (line <span class="line-number">291</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Creates the active request object for the client, parses the input for headers  and retrieves any posted content body.</p>
+<p class="short-description">Creates the active request object for the client, parses the input for headers  and starts the buffering of any posted content body.</p>
 	<ul class="tags">
 				<li><span class="field">return:</span> false if initialization failed</li>
 				<li><span class="field">access:</span> public</li>
@@ -1845,14 +2204,14 @@
 			
 	</div>
 <a name="methodstartResponse" id="startResponse"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">startResponse</span> (line <span class="line-number">335</span>)
+		<span class="method-title">startResponse</span> (line <span class="line-number">409</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Common initalization step for all response objects.</p>
+<p class="short-description">Common initialization step for all response objects.</p>
 	<ul class="tags">
 				<li><span class="field">return:</span> this instance</li>
 				<li><span class="field">access:</span> public</li>
@@ -1878,10 +2237,10 @@
 			
 	</div>
 <a name="methodwriteLog" id="writeLog"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">writeLog</span> (line <span class="line-number">511</span>)
+		<span class="method-title">writeLog</span> (line <span class="line-number">593</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1908,7 +2267,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 24 Mar 2011 03:20:29 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sat, 11 Feb 2012 22:27:30 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

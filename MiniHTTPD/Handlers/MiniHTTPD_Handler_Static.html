@@ -25,7 +25,7 @@
 <p class="short-description">This class handles requests for static pages, including any last modified  queries for caching purposes.</p>
 	<ul class="tags">
 				<li><span class="field">author:</span> MiniHTTPD Team</li>
-				<li><span class="field">copyright:</span> (c) 2010 MiniHTTPD Team</li>
+				<li><span class="field">copyright:</span> (c) 2010-2012 MiniHTTPD Team</li>
 				<li><span class="field">see:</span> MiniHTTPD_Request_Handler for full documentation.</li>
 				<li><span class="field">license:</span> BSD</li>
 			</ul>
@@ -55,13 +55,17 @@
 								</div>
 		<div class="info-box-body">
 			<div class="var-summary">
-																																<div class="var-title">
+																																								<div class="var-title">
 					<span class="var-type">mixed</span>
 					<a href="#$info" title="details" class="var-name">$info</a>
 				</div>
 																<div class="var-title">
 					<span class="var-type">mixed</span>
 					<a href="#$isFinal" title="details" class="var-name">$isFinal</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$mimes" title="details" class="var-name">$mimes</a>
 				</div>
 											</div>
 		</div>
@@ -79,7 +83,13 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																														
+																																																						
+				<div class="method-definition">
+											<span class="method-result">MiniHTTPD_Handler_Static</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+														
 				<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#execute" title="details" class="method-name">execute</a>
@@ -122,13 +132,13 @@
 		<div class="info-box-body">
 			
 <a name="var$info" id="$info"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">mixed</span>
 			<span class="var-name">$info</span>
-						(line <span class="line-number">17</span>)
+						(line <span class="line-number">18</span>)
 		</span>
 	</div>
 
@@ -143,13 +153,34 @@
 
 </div>
 <a name="var$isFinal" id="$isFinal"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">mixed</span>
 			<span class="var-name">$isFinal</span>
 			 = <span class="var-default"> true</span>			(line <span class="line-number">16</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$mimes" id="$mimes"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$mimes</span>
+						(line <span class="line-number">17</span>)
 		</span>
 	</div>
 
@@ -178,11 +209,34 @@
 		</div>
 		<div class="info-box-body">
 			<A NAME='method_detail'></A>
-<a name="methodexecute" id="execute"><!-- --></a>
+<a name="method__construct" id="__construct"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">execute</span> (line <span class="line-number">33</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">78</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">MiniHTTPD_Handler_Static</span>
+		<span class="method-name">
+			__construct
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodexecute" id="execute"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">execute</span> (line <span class="line-number">34</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -210,10 +264,10 @@
 			
 	</div>
 <a name="methodmatches" id="matches"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">matches</span> (line <span class="line-number">19</span>)
+		<span class="method-title">matches</span> (line <span class="line-number">20</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -233,10 +287,10 @@
 			
 	</div>
 <a name="methodreset" id="reset"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">reset</span> (line <span class="line-number">71</span>)
+		<span class="method-title">reset</span> (line <span class="line-number">72</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -256,15 +310,16 @@
 			
 	</div>
 <a name="methodstartStatic" id="startStatic"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">startStatic</span> (line <span class="line-number">85</span>)
+		<span class="method-title">startStatic</span> (line <span class="line-number">95</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Initializes the response object for static requests.</p>
 	<ul class="tags">
+				<li><span class="field">todo:</span> add support for Range, Content-Range / 206 Partial Content  http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35  http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.16</li>
 				<li><span class="field">access:</span> protected</li>
 			</ul>
 	
@@ -296,7 +351,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Thu, 24 Mar 2011 03:20:34 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sat, 11 Feb 2012 22:27:32 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
