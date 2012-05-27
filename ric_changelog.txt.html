@@ -14,12 +14,29 @@
          &lt;&lt; MiniHTTPD PHP Webserver &gt;&gt; Version History
 ===================================================================
 
+Version 0.7 - 2012/05/27
+
+- Replaced packed binary with php-win for non-console mode
+- Updated PHP binaries to 5.4.3 with basic extensions
+- Unlogged FCGI errors will now be added to the server log
+- Better validation of Keep-Alive connections
+- Added configurable timeout for FCGI connections
+- Improved CLI output readability in debug mode
+- Added decompression method for FCGI responses
+- Added rewrite handler exclude &amp; external redirect options
+- Configuration file can now be set via MHTTPD_INIFILE
+- Added header count and size limits for better security
+- Improved handling of multiple header values
+- Added handling of folded header values
+- Improved check of support for persistent connections
+- Added support for custom error pages from FCGI
+
 Version 0.6 - 2012/02/11
 
 - Improved memory usage &amp; concurrency with large posts
 - Added buffering of FCGI requests to prevent blocking
-- Added buffering of large client requests
-- Added non-blocking option for FCGI requests
+- Improved buffering of large client requests
+- Added non-blocking option for FCGI responses
 - Better handling of default charset
 - Extended X-SendFile support, locations &amp; options
 - Added config option for naming FCGI processes
@@ -80,7 +97,7 @@ Version 0.1 - 2010/07/30
 
 </pre>
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 11 Feb 2012 22:27:29 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sun, 27 May 2012 08:58:50 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</body>
 </html>
